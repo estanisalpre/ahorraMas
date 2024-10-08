@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorra+ - Portal</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/src/assets/styles/home.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Nerko+One&display=swap" rel="stylesheet">
+    <!--Link favicon-->
+    <link rel="shortcut icon" href="/src/assets/img/logo/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <p>¿Qué deseas hacer?</p>
+        <header>
+            <ul>
+                <li id="homeButton"><img src="/src/assets/img/icons/home.png" alt="Home Icon"><span>Inicio</span></li>
+                <li id="addButton"><img src="/src/assets/img/icons/add.png" alt="Add Icon"><span>Agregar</span></li>
+                <li id="expensesButton"><img src="/src/assets/img/icons/expenses.png" alt="Expenses Icon"><span>Historial</span></li>
+            </ul>
+        </header>
+    </nav>
+    <main>
+        <section id="homeSection" class="homeSection">
+            <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Ahorra+ Logotype">
+        </section>
+        <section id="addSection" class="addSection">
+            <form>
+                <input type="text" name="description" id="description" required placeholder="Descripción">
+                <input type="date" name="date" id="date" required>
+                <input type="number" name="value" id="value" required placeholder="¿Cuánto?">
+                <select id="category">
+                    <option value="transporte">Transporte</option>
+                    <option value="alimentos">Alimentos</option>
+                    <option value="entretenimiento">Entretenimiento</option>
+                </select>
+                <button id="registerButton" type="submit">Registrar</button>
+            </form>
+        </section>
+        <section id="expensesContainer" class="expensesContainer">
+            <h3>Historial de gastos</h3>
+            <ul id="expensesList" class="expensesList"></ul>
+        </section>
+    </main>
+    <!--SCRIPTS-->
+    <script type="module" src="/src/js/formController.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/controllers.js"></script>
+</body>
+</html>

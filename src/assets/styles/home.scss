@@ -1,0 +1,153 @@
+//Variables
+$sm: 12px;
+$md: 18px;
+$lg: 24px;
+$afacadFont: "Afacad Flux", sans-serif;
+$secondaryColor: #2c4ba9;
+
+//Mixins
+@mixin displayFlex($justifyContent: center, $flexDirection: column){
+    display: flex;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+    align-items: center;
+}
+@mixin sizes($width: 100%, $height: 100%){
+    width: $width;
+    height: $height;
+}
+
+//Generales
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//Html
+html{
+    @include sizes();
+    @include displayFlex();
+}
+//Body
+body{
+    @include sizes();
+    @include displayFlex();
+    font-family: $afacadFont;
+}
+
+//Nav
+nav{
+    @include sizes(100%,130px);
+    background-color: $secondaryColor;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    @include displayFlex($justifyContent: space-between);
+    z-index: 10000;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+    p{
+        @include displayFlex();
+        font-size: $lg;
+        @include sizes($width: 200px,$height: 50px);
+        text-align: center;
+        background-color: #81ee55;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    header{
+        @include displayFlex($flexDirection: row);
+        @include sizes();
+        
+        ul{
+            @include displayFlex($flexDirection: row);
+            @include sizes();
+            gap: 15px;
+            li{
+                list-style: none;
+                @include displayFlex();
+                cursor: pointer;
+                transition: all 0.5s ease;
+
+                img{
+                    @include sizes(35px,auto);
+                }
+                span{
+                    font-size: $lg;
+                    font-weight: 600;
+                }
+            }
+            li:hover{
+                transform: scale(1.07)
+            }
+        }
+    }
+}
+
+//Main
+main{
+    @include sizes();
+    @include displayFlex();
+    margin-top: 120px;
+
+    .homeSection{
+        @include displayFlex();
+        @include sizes(90%, 300px);
+    }
+    .addSection{
+        border: 1px solid blue;
+        @include sizes();
+        @include displayFlex();
+        display: none;
+
+        form{
+            @include displayFlex();
+            gap: 5px;
+
+            input{
+                @include sizes(400px,40px);
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: transparent;
+                padding-left: 10px;
+                font-family: $afacadFont;
+            }
+            
+        }
+    }
+    .expensesContainer{
+        @include sizes($width: 90%);
+        @include displayFlex();
+        gap: 10px;
+        display: none;
+        margin-top: 150px;
+
+        h3{
+            font-size: $lg;
+            opacity: 0.7;
+            @include sizes();
+        }
+
+        ul{
+            @include displayFlex();
+            @include sizes();
+            gap:5px;
+
+            li{
+                @include sizes();
+                @include displayFlex($justifyContent: space-between,$flexDirection: row);
+                box-shadow: 0px 0px 5px 1px rgb(161, 161, 161);
+                border-radius: 5px;
+                padding: 5px;
+
+                img{
+                    @include sizes(35px,auto)
+                }
+            }
+        }
+    }
+
+}
+

@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 130px;
+  background-color: #2c4ba9;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10000;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+nav p {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  background-color: #81ee55;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+nav header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+nav header ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 15px;
+}
+nav header ul li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+nav header ul li img {
+  width: 35px;
+  height: auto;
+}
+nav header ul li span {
+  font-size: 24px;
+  font-weight: 600;
+}
+nav header ul li:hover {
+  transform: scale(1.07);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+}
+main .homeSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 300px;
+}
+main .addSection {
+  border: 1px solid blue;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+main .addSection form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+main .addSection form input {
+  width: 400px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+  padding-left: 10px;
+  font-family: "Afacad Flux", sans-serif;
+}
+main .expensesContainer {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  display: none;
+  margin-top: 150px;
+}
+main .expensesContainer h3 {
+  font-size: 24px;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+}
+main .expensesContainer ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
+main .expensesContainer ul li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 0px 5px 1px rgb(161, 161, 161);
+  border-radius: 5px;
+  padding: 5px;
+}
+main .expensesContainer ul li img {
+  width: 35px;
+  height: auto;
+}/*# sourceMappingURL=home.css.map */
