@@ -1,10 +1,15 @@
 //Importaciones
-import { navButton } from "./buttonFunctions.js";
+import { navButtons } from "./buttonFunctions.js";
 import { showSpentList } from "./controllers.js";
 import { registerNewSpent } from "./formController.js";
+import { allRedirections} from "./redirections.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    navButton();
+    //Redireccionamientos
+    allRedirections();
+
+    navButtons();
     showSpentList();
     registerNewSpent();
+    
 })

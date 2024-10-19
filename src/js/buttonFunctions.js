@@ -1,5 +1,5 @@
 //Funciones de botones
-export function navButton(){
+export function navButtons(){
     const expensesButton = document.getElementById('expensesButton')
     const homeButton = document.getElementById('homeButton')
     const expensesContainer = document.getElementById('expensesContainer')
