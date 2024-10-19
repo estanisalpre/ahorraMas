@@ -4,6 +4,8 @@ import { showSpentList } from "./controllers.js";
 import { registerNewSpent } from "./formController.js";
 import { allRedirections} from "./redirections.js";
 import { registerUser } from "./register.js";
+import { login } from "./login.js";
+import { logOut } from "./logOut.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     //Redireccionamientos
@@ -15,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Registrar usuarios
     registerUser();
+
+    //Loguearse
+    login();
+
+    //Cerrar sesión
+    logOut();
 })
