@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="/src/assets/img/logo/favicon.png" type="image/x-icon">
 </head>
 <body>
+    <!--NAV & HEADER-->
     <nav>
         <header class="topHeader">
             <ul class="navSectionsList">
@@ -28,9 +29,19 @@
             <img id="toIndex" src="/src/assets/img/logo/logoWithoutBackground.png" alt="Logo Ahorra+">
         </header>
     </nav>
+    <!--CONTENIDO PRINCIPAL (FORMULARIO)-->
     <main>
-        
+        <section>
+            <form class="loginForm">
+                <h1>Ingresa con las siguientes credenciales</h1>
+                <input type="email" name="email" id="email" required placeholder="Correo electrónico">
+                <input type="password" name="password" id="password" required placeholder="Contraseña">
+                <button id="loginUser">Ingresar</button>
+                <p>¿Ya tienes cuenta? <span id="toRegister">Registrarme</span></p>
+            </form>
+       </section>
     </main>
+    <!--FOOTER-->
     <footer>
         <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Logo Ahorra+">
     </footer>

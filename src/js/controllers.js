@@ -5,7 +5,7 @@
 export function showSpentList(){
     //Llamamos al ul
     const ulList = document.getElementById('expensesList')
-    ulList.innerHTML = ""; //Limpiamos el contenido
+    //ulList.innerHTML = ""; //Limpiamos el contenido
 
     //Creamos un key en localstorage, si es que no hay
     /* if (!localStorage.getItem('spents')) {

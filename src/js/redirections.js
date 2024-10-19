@@ -20,14 +20,14 @@ function indexRedirections(){
     //Login
     if(toLogin){
         toLogin.addEventListener('click', () => {
-            location.href = './src/views/login.html'
+            location.href = '/src/views/login.html'
         })
     }
 
     //Register
     if(toRegister){
         toRegister.addEventListener('click', () => {
-            location.href = './src/views/register.html'
+            location.href = '/src/views/register.html'
         })
     }
 }

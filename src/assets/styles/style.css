@@ -119,6 +119,10 @@ nav .bottomHeader ul li:hover {
 main {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 main section {
@@ -205,6 +209,83 @@ main .principalContainer article ul li button {
 main .principalContainer article ul li button:hover {
   background-color: #09e668;
 }
+main .registerForm, main .loginForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: default;
+}
+main .registerForm h1, main .loginForm h1 {
+  font-size: 16px;
+  width: 300px;
+}
+main .registerForm input, main .loginForm input {
+  border-radius: 5px;
+  border: 0px solid black;
+  outline: none;
+  width: 300px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Afacad Flux", sans-serif;
+  padding-left: 10px;
+  box-shadow: 0px 0px 5px 1px #9d9c9c;
+}
+main .registerForm button, main .loginForm button {
+  padding: 2px;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Afacad Flux", sans-serif;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #272727;
+  cursor: pointer;
+}
+main .registerForm button:hover, main .loginForm button:hover {
+  background-color: #09e668;
+}
+main .registerForm p, main .loginForm p {
+  width: 300px;
+}
+main .registerForm #toLogin, main .registerForm #toRegister, main .loginForm #toLogin, main .loginForm #toRegister {
+  cursor: pointer;
+  color: #2c4ba9;
+  font-weight: 600;
+}
+main #errorSuccessModals {
+  position: absolute;
+  box-shadow: 0px 0px 10px 1px #9d9c9c;
+  border-radius: 5px;
+  padding: 10px;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  top: 150px;
+  z-index: 99999;
+  transform: translateY(-1500px);
+  display: none;
+}
+main #errorSuccessModals span {
+  color: #272727;
+  font-weight: 600;
+}
+main #errorSuccessModals img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
 
 footer {
   width: 100%;
@@ -226,4 +307,10 @@ footer img {
 
 footer:hover {
   height: 150px;
+}
+
+@keyframes fadeInModal {
+  100% {
+    transform: translateY(50px);
+  }
 }/*# sourceMappingURL=style.css.map */
