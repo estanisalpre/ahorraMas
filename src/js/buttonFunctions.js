@@ -1,4 +1,6 @@
 //Funciones de botones
+import { showSpentList } from "./controllers.js"
+
 export function navButtons(){
     const expensesButton = document.getElementById('expensesButton')
     const homeButton = document.getElementById('homeButton')
@@ -10,6 +12,7 @@ export function navButtons(){
     if(expensesButton){
         expensesButton.addEventListener('click', () => {
             closeAllSections();
+            showSpentList();
             expensesContainer.style.display = 'flex'
         })
     }

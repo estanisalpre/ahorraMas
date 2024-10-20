@@ -1,44 +1,64 @@
-//Importaciones
-//import {gastos} from "./APIsimulator.js"
-//import { registerNewSpent } from "./formController.js";
+//Funcionalidad de leer e imprimir el historial de gastos
 
 export function showSpentList(){
-    //Llamamos al ul
-    const ulList = document.getElementById('expensesList')
-    //ulList.innerHTML = ""; //Limpiamos el contenido
+    //Span sobre si hay movimientos
+    const spentSpan = document.getElementById('spentSpan')
 
-    //Creamos un key en localstorage, si es que no hay
-    /* if (!localStorage.getItem('spents')) {
-        localStorage.setItem('spents', JSON.stringify(Spents));
-    } */
+    //Traemos del localstorage el array de gastos (spentHistory)
+    const users = JSON.parse(localStorage.getItem('users'))
 
-    //forEach lo que hace es recorrer los datos uno por uno
-    /* gastos.forEach(function(gasto){
-        //Creamos elementos
-        let newLi = document.createElement('li')
-        newLi.classList.add('list') //Agregamos clase para CSS
-        let divImg = document.createElement('div')
-        let images = document.createElement('img')
-        let spanDescription = document.createElement('span')
-        let spanValue = document.createElement('span')
+    //Traemos el sessionStorage y comprobamos si el usuario existe
+    const getUserEmail = sessionStorage.getItem('activeEmail') 
+    //const userExists = users.some(user => user.email === getUserEmail)
 
-        //Agregamos valores a los span
-        spanDescription.textContent = gasto.descripcion
-        spanValue.textContent = "$ " + gasto.valor
+    //Encontramos el index
+    const userIndex = users.findIndex(user => user.email === getUserEmail)
 
-        //Agregamos el contenido
-        ulList.appendChild(newLi)
-        newLi.appendChild(divImg)
-        divImg.appendChild(images)
-        newLi.appendChild(spanDescription)
-        newLi.appendChild(spanValue)
+    if(userIndex !== -1){
+        spentSpan.style.display = 'none'
 
-        if(gasto.categoria=="transporte"){
-            images.src="/src/assets/img/icons/transport.png"
-        }else if(gasto.categoria=="alimentos"){
-            images.src="/src/assets/img/icons/fastFood.png"
-        }else if(gasto.categoria=="entretenimiento"){
-            images.src="/src/assets/img/icons/entertainment.png"
-        }
-    }) */
+        //Traemos el array con el historial
+        const mySpentHistory = users[userIndex].spentHistory || [];
+
+        //Traemos donde imprimiremos los gastos
+        const ulList = document.getElementById('expensesList')
+        //ulList.innerHTML = "";
+
+        mySpentHistory.forEach(function(spent){
+            //Creamos los elementos que aplicaremos
+            let newLi = document.createElement('li')
+            let divImg = document.createElement('div')
+            let images = document.createElement('img')
+            let spanDescription = document.createElement('span')
+            let spanValue = document.createElement('span')
+            
+            //Agregamos clase para CSS
+            newLi.classList.add('list')
+            
+            //Agregamos valores a los span
+            spanDescription.textContent = spent.description;
+            spanValue.textContent = "$ " + spent.value;
+
+            //Agregamos segun sea el ícono
+            if(spent.category=="transporte"){
+                images.src="/src/assets/img/icons/transport.png"
+            }else if(spent.category=="alimentos"){
+                images.src="/src/assets/img/icons/fastFood.png"
+            }else if(spent.category=="entretenimiento"){
+                images.src="/src/assets/img/icons/entertainment.png"
+            }
+
+            //Agregamos el contenido
+            ulList.appendChild(newLi)
+            newLi.appendChild(divImg)
+            divImg.appendChild(images)
+            newLi.appendChild(spanDescription)
+            newLi.appendChild(spanValue)
+        })  
+    } else {
+        spentSpan.style.display = 'block'
+    }
 }
+
+//Llamamos a la función
+showSpentList();

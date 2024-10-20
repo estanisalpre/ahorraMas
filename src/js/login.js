@@ -20,6 +20,7 @@ export function login(){
 
             if(userExists){
                 sessionStorage.setItem('activeUser', userExists.username)
+                sessionStorage.setItem('activeEmail', userExists.email)
                 location.href = '/src/views/home.html'
             } else {
                 const errorMessage = 'Credenciales incorrectas'

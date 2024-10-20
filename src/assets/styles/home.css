@@ -43,7 +43,7 @@ nav p {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 24px;
+  font-size: 22px;
   width: 200px;
   height: 50px;
   text-align: center;
@@ -82,7 +82,7 @@ nav header ul li img {
   height: auto;
 }
 nav header ul li span {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
 }
 nav header ul li:hover {
@@ -105,9 +105,9 @@ main .homeSection {
   align-items: center;
   width: 90%;
   height: 300px;
+  display: flex;
 }
 main .addSection {
-  border: 1px solid blue;
   width: 100%;
   height: 100%;
   display: flex;
@@ -121,16 +121,52 @@ main .addSection form {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 main .addSection form input {
-  width: 400px;
+  border-radius: 5px;
+  border: 0px solid black;
+  outline: none;
+  width: 350px;
   height: 40px;
-  border: 1px solid black;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Afacad Flux", sans-serif;
+  padding-left: 10px;
+  box-shadow: 0px 0px 5px 1px #9d9c9c;
+}
+main .addSection form select {
+  border-radius: 5px;
+  border: 0px solid black;
+  outline: none;
+  width: 350px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Afacad Flux", sans-serif;
+  padding-left: 10px;
+  box-shadow: 0px 0px 5px 1px #9d9c9c;
+}
+main .addSection form button {
+  padding: 2px;
+  border: 1px solid #272727;
   border-radius: 5px;
   background-color: transparent;
-  padding-left: 10px;
+  transition: all 0.3s ease;
   font-family: "Afacad Flux", sans-serif;
+  width: 350px;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #272727;
+  cursor: pointer;
+}
+main .addSection form button:hover {
+  background-color: #09e668;
+}
+main .addSection form input:first-child {
+  height: 80px;
 }
 main .expensesContainer {
   width: 90%;
@@ -141,35 +177,69 @@ main .expensesContainer {
   align-items: center;
   gap: 10px;
   display: none;
-  margin-top: 150px;
+  margin-top: 20px;
 }
 main .expensesContainer h3 {
-  font-size: 24px;
+  font-size: 22px;
   opacity: 0.7;
   width: 100%;
-  height: 100%;
+  height: 40px;
 }
 main .expensesContainer ul {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: 500px;
   gap: 5px;
+  box-shadow: 0px 0px 10px 1px #9d9c9c;
+  overflow-y: scroll;
+  padding: 15px;
 }
 main .expensesContainer ul li {
   width: 100%;
-  height: 100%;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  box-shadow: 0px 0px 5px 1px rgb(161, 161, 161);
-  border-radius: 5px;
+  border-bottom: 1px solid #09e668;
   padding: 5px;
 }
 main .expensesContainer ul li img {
   width: 35px;
   height: auto;
+}
+main #errorSuccessModals {
+  position: absolute;
+  box-shadow: 0px 0px 10px 1px #9d9c9c;
+  border-radius: 5px;
+  padding: 10px;
+  width: 230px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  top: 150px;
+  z-index: 99999;
+  transform: translateY(-1500px);
+  display: none;
+}
+main #errorSuccessModals span {
+  color: #272727;
+  font-weight: 600;
+}
+main #errorSuccessModals img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+
+@keyframes fadeInModal {
+  100% {
+    transform: translateY(50px);
+  }
 }/*# sourceMappingURL=home.css.map */

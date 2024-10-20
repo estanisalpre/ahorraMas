@@ -14,21 +14,25 @@
     <link rel="shortcut icon" href="/src/assets/img/logo/favicon.png" type="image/x-icon">
 </head>
 <body>
+    <!--NAV & HEADER-->
     <nav>
         <p>¿Qué deseas hacer?</p>
         <header>
             <ul>
-                <li id="homeButton"><img src="/src/assets/img/icons/home.png" alt="Home Icon"><span>Inicio</span></li>
-                <li id="addButton"><img src="/src/assets/img/icons/add.png" alt="Add Icon"><span>Agregar</span></li>
-                <li id="expensesButton"><img src="/src/assets/img/icons/expenses.png" alt="Expenses Icon"><span>Historial</span></li>
+                <li id="homeButton"><img src="/src/assets/img/icons/home.png" alt="Home Icon"></li>
+                <li id="addButton"><img src="/src/assets/img/icons/add.png" alt="Add Icon"></li>
+                <li id="expensesButton"><img src="/src/assets/img/icons/expenses.png" alt="Expenses Icon"></li>
                 <li><img id="logOutButton" src="/src/assets/img/icons/logOut.png" alt="Logout Icon"></li>
             </ul>
         </header>
     </nav>
+    <!--CONTENIDO PRINCIPAL-->
     <main>
+        <!--SECCION PRINCIPAL-->
         <section id="homeSection" class="homeSection">
             <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Ahorra+ Logotype">
         </section>
+        <!--SECCION DE FORMULARIO PARA AGREGAR GASTOS-->
         <section id="addSection" class="addSection">
             <form>
                 <input type="text" name="description" id="description" required placeholder="Descripción">
@@ -42,13 +46,24 @@
                 <button id="registerButton" type="submit">Registrar</button>
             </form>
         </section>
+        <!--SECCION DE HISTORIAL DE GASTOS-->
         <section id="expensesContainer" class="expensesContainer">
             <h3>Historial de gastos</h3>
-            <ul id="expensesList" class="expensesList"></ul>
+            <ul id="expensesList" class="expensesList">
+                <span id="spentSpan">Aún no hay registro de gastos</span>
+            </ul>
+        </section>
+        <!--MODALES ERROR Y ÉXITO-->
+        <section id="errorSuccessModals">
+            <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
         </section>
     </main>
+    <!--FOOTER-->
+    <footer>
+
+    </footer>
     <!--SCRIPTS-->
-    <script type="module" src="/src/js/formController.js"></script>
-    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/controllers.js"></script>
+    <script type="module" src="/src/js/app.js"></script>
 </body>
 </html>

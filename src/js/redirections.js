@@ -1,12 +1,6 @@
 //Todas las redirecciones las realizamos aquí. Ej: Botones, links, redes, entre otros.
 
-export function allRedirections(){
-    //login.html // register.html
-    indexRedirections();
-}
-
-//Redireccionamos a index, login y register
-function indexRedirections(){
+export function indexRedirections(){
     const toLogin = document.getElementById('toLogin')
     const toRegister = document.getElementById('toRegister')
     const toIndex = document.getElementById('toIndex')

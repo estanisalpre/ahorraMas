@@ -1,9 +1,26 @@
 //Variables
+$backgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+$brandColor: #09e668;
 $sm: 12px;
 $md: 18px;
 $lg: 24px;
 $afacadFont: "Afacad Flux", sans-serif;
 $secondaryColor: #2c4ba9;
+$darkFontColor: #272727;
+$lightFontColor: #e3e3e3;
+$shadow: #9d9c9c;
+$errorColor: rgb(245, 106, 106);
+$sm: 14px;
+$md: 16px;
+$lg: 22px;
+$slg: 30px;
+$noBold: 400;
+$bold: 600;
+$montserratFont: "Montserrat", sans-serif;
+$fontAfacada: "Afacad Flux", sans-serif;
+$fontOpenSans: "Open Sans", sans-serif;
+$fontNerkoOne: "Nerko One", cursive;
+$fontPlaywrite: "Playwrite CU", cursive;
 
 //Mixins
 @mixin displayFlex($justifyContent: center, $flexDirection: column){
@@ -15,6 +32,39 @@ $secondaryColor: #2c4ba9;
 @mixin sizes($width: 100%, $height: 100%){
     width: $width;
     height: $height;
+}
+@mixin fontConfig($textAlign: center, $fontSize: $sm, $fontWeight: $noBold, $fontColor: $darkFontColor){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    text-align: $textAlign;
+}
+@mixin buttonDesign($width: 100%){
+    padding: 2px;
+    border: 1px solid $darkFontColor;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: $fontAfacada;
+    width: $width;
+    height: 40px;
+    text-align: center;
+    font-weight: $bold;
+    font-size: $sm;
+    color: $darkFontColor;
+    cursor: pointer;
+}
+@mixin inputDesign($width: 300px, $height: 40px){
+    border-radius: 5px;
+    border: 0px solid black;
+    outline: none;
+    width: $width;
+    height: $height;
+    background-color: transparent;
+    font-size: $md;
+    font-family: $fontAfacada;
+    padding-left: 10px;
+    box-shadow: 0px 0px 5px 1px $shadow;
 }
 
 //Generales
@@ -29,6 +79,7 @@ html{
     @include sizes();
     @include displayFlex();
 }
+
 //Body
 body{
     @include sizes();
@@ -92,54 +143,68 @@ main{
     @include displayFlex();
     margin-top: 120px;
 
+    //Contenedor principal
     .homeSection{
         @include displayFlex();
         @include sizes(90%, 300px);
+        display: flex;
     }
+
+    //Contenedor para agregar gastos (Formulario)
     .addSection{
-        border: 1px solid blue;
         @include sizes();
         @include displayFlex();
         display: none;
 
         form{
             @include displayFlex();
-            gap: 5px;
+            gap: 10px;
 
             input{
-                @include sizes(400px,40px);
-                border: 1px solid black;
-                border-radius: 5px;
-                background-color: transparent;
-                padding-left: 10px;
-                font-family: $afacadFont;
+                @include inputDesign($width: 350px,$height: 40px);
             }
-            
+            select{
+                @include inputDesign($width: 350px,$height: 40px);
+            }
+            button{
+                @include buttonDesign($width:350px);
+            }
+            button:hover{
+                background-color: $brandColor;
+            }
+        }
+        form input:first-child{
+            height: 80px;
         }
     }
+
+    //Contenedor del historial de gastos
     .expensesContainer{
         @include sizes($width: 90%);
         @include displayFlex();
         gap: 10px;
         display: none;
-        margin-top: 150px;
+        margin-top: 20px;
 
         h3{
             font-size: $lg;
             opacity: 0.7;
-            @include sizes();
+            @include sizes($height: 40px);
         }
 
         ul{
             @include displayFlex();
-            @include sizes();
-            gap:5px;
+            display: block;
+            @include sizes($height: 500px);
+            gap: 5px;
+            box-shadow: 0px 0px 10px 1px $shadow;
+            overflow-y: scroll;
+            padding: 15px;
 
             li{
-                @include sizes();
+                @include sizes($height: 40px);
                 @include displayFlex($justifyContent: space-between,$flexDirection: row);
-                box-shadow: 0px 0px 5px 1px rgb(161, 161, 161);
-                border-radius: 5px;
+                border-bottom: 1px solid $brandColor;
                 padding: 5px;
 
                 img{
@@ -149,5 +214,32 @@ main{
         }
     }
 
+    //Modales de error y éxito
+    #errorSuccessModals{
+        position: absolute;
+        box-shadow: 0px 0px 10px 1px $shadow;
+        border-radius: 5px;
+        padding: 10px;
+        @include sizes($width:230px,$height:40px);
+        @include displayFlex($justifyContent:space-between,$flexDirection:row);
+        top: 150px;
+        z-index: 99999;
+        transform: translateY(-1500px);
+        display: none;
+
+        span{
+            color: $darkFontColor;
+            font-weight: $bold;
+        }
+        img{
+            @include sizes($width: 20px, $height: auto);
+            cursor: pointer;
+        }
+    }
+}
+
+//Animaciones
+@keyframes fadeInModal {
+    100%{transform: translateY(50px);}
 }
 

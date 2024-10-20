@@ -2,6 +2,7 @@
 //Importamos
 import { Users } from "./Users.js";
 import { successModal, errorModal } from "./modalController.js";
+import { spents } from "./APIsimulator.js";
 
 export function registerUser(){
     //Traemos el boton de formulario
@@ -24,10 +25,9 @@ export function registerUser(){
                 const errorMessage = 'Email ya existe'
                 errorModal(errorMessage);
             } else {
-                console.log('no existe')
-
                 //Instanciamos objeto
-                const newUser = new Users(userName,userEmail,userPassword)
+                const spentsHistory = spents;
+                const newUser = new Users(userName,userEmail,userPassword,spentsHistory)
 
                 //Pusheamos el nuevo usuario
                 users.push(newUser)
