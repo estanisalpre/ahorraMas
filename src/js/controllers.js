@@ -29,6 +29,7 @@ export function showSpentList(){
             let newLi = document.createElement('li')
             let divImg = document.createElement('div')
             let images = document.createElement('img')
+            let spanDate = document.createElement('span')
             let spanDescription = document.createElement('span')
             let spanValue = document.createElement('span')
             
@@ -36,6 +37,7 @@ export function showSpentList(){
             newLi.classList.add('list')
             
             //Agregamos valores a los span
+            spanDate.textContent = spent.date;
             spanDescription.textContent = spent.description;
             spanValue.textContent = "$ " + spent.value;
 
@@ -52,6 +54,7 @@ export function showSpentList(){
             ulList.appendChild(newLi)
             newLi.appendChild(divImg)
             divImg.appendChild(images)
+            newLi.appendChild(spanDate)
             newLi.appendChild(spanDescription)
             newLi.appendChild(spanValue)
         })  

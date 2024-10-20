@@ -35,7 +35,8 @@
         <!--SECCION DE FORMULARIO PARA AGREGAR GASTOS-->
         <section id="addSection" class="addSection">
             <form>
-                <input type="text" name="description" id="description" required placeholder="Descripción">
+                <h3>Registra un nuevo gasto aquí</h3>
+                <input type="text" name="description" id="description" required placeholder="Describe el gasto">
                 <input type="date" name="date" id="date" required>
                 <input type="number" name="value" id="value" required placeholder="¿Cuánto?">
                 <select id="category">
@@ -50,6 +51,12 @@
         <section id="expensesContainer" class="expensesContainer">
             <h3>Historial de gastos</h3>
             <ul id="expensesList" class="expensesList">
+                <ul class="ulHeader">
+                    <li>Tipo</li>
+                    <li>Fecha</li>
+                    <li>Descripción</li>
+                    <li>Valor</li>
+                </ul>
                 <span id="spentSpan">Aún no hay registro de gastos</span>
             </ul>
         </section>

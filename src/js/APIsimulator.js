@@ -1,9 +1,9 @@
 export let spents = Array(
     {
         //id:200,
-        category:"",
+        category:"Tipo",
         value:0,
-        date:"",
+        date:"Fecha",
         description:""
     }
 )

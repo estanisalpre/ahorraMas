@@ -12,7 +12,6 @@ export function navButtons(){
     if(expensesButton){
         expensesButton.addEventListener('click', () => {
             closeAllSections();
-            showSpentList();
             expensesContainer.style.display = 'flex'
         })
     }

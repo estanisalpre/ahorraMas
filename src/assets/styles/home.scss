@@ -158,8 +158,14 @@ main{
 
         form{
             @include displayFlex();
+            @include sizes();
             gap: 10px;
+            border: 1px solid black;
 
+            h3{
+                width: 350px;
+                cursor: default;
+            }
             input{
                 @include inputDesign($width: 350px,$height: 40px);
             }
@@ -192,7 +198,7 @@ main{
             @include sizes($height: 40px);
         }
 
-        ul{
+        .expensesList{
             @include displayFlex();
             display: block;
             @include sizes($height: 500px);
@@ -201,14 +207,35 @@ main{
             overflow-y: scroll;
             padding: 15px;
 
+            .ulHeader{
+                @include displayFlex($justifyContent: space-between,$flexDirection:row);
+                box-shadow: 0px 0px 5px 1px $shadow;
+                border-radius: 5px;
+                opacity: 0.7;
+                cursor: default;
+                padding: 5px;
+
+                li{
+                    @include sizes($width: 200px,$height: 40px);
+                    border-bottom: 0px;
+                }
+            }
+            .ulHeader li:first-child{
+                width: 150px;
+            }
             li{
                 @include sizes($height: 40px);
                 @include displayFlex($justifyContent: space-between,$flexDirection: row);
                 border-bottom: 1px solid $brandColor;
-                padding: 5px;
+                cursor: default;
 
                 img{
-                    @include sizes(35px,auto)
+                    @include sizes(30px,auto);
+                }
+                span{
+                    @include sizes($width: 200px);
+                    @include displayFlex();
+                    align-items: flex-start;
                 }
             }
         }
@@ -242,4 +269,3 @@ main{
 @keyframes fadeInModal {
     100%{transform: translateY(50px);}
 }
-

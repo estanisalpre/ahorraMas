@@ -3,7 +3,6 @@
 import { indexRedirections } from "./redirections.js";
 import { registerUser } from "./register.js";
 import { login } from "./login.js";
-import { logOut } from "./logOut.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +14,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Loguearse
     login();
-
-    //Cerrar sesión
-    logOut();
 })
