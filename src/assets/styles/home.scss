@@ -1,11 +1,10 @@
+//Importamos
+@import "_mediaQueries";
+
 //Variables
 $backgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-$brandColor: #09e668;
-$sm: 12px;
-$md: 18px;
-$lg: 24px;
-$afacadFont: "Afacad Flux", sans-serif;
-$secondaryColor: #2c4ba9;
+$brandColor: linear-gradient(120deg, #b6e154 0%, #96e6a1 100%);
+$secondaryColor: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 $darkFontColor: #272727;
 $lightFontColor: #e3e3e3;
 $shadow: #9d9c9c;
@@ -20,7 +19,7 @@ $montserratFont: "Montserrat", sans-serif;
 $fontAfacada: "Afacad Flux", sans-serif;
 $fontOpenSans: "Open Sans", sans-serif;
 $fontNerkoOne: "Nerko One", cursive;
-$fontPlaywrite: "Playwrite CU", cursive;
+$fontPlaywrite: "Playwrite GB S", serif;
 
 //Mixins
 @mixin displayFlex($justifyContent: center, $flexDirection: column){
@@ -83,57 +82,92 @@ html{
 //Body
 body{
     @include sizes();
-    @include displayFlex();
-    font-family: $afacadFont;
+    @include displayFlex($flexDirection:row);
+    font-family: $fontAfacada;
+    gap: 10px;
+
+    @include tablet {
+        flex-direction: column;
+    }
 }
 
 //Nav
 nav{
-    @include sizes(100%,130px);
-    background-color: $secondaryColor;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    @include displayFlex($justifyContent: space-between);
+    @include sizes(120px,500px);
+    background-image: $secondaryColor;
+    margin-left: 10px;
+    @include displayFlex($justifyContent: space-around);
     z-index: 10000;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 10px 1px $shadow;
+    overflow: hidden;
+    padding-bottom: 15px;
 
-    p{
-        @include displayFlex();
-        font-size: $lg;
-        @include sizes($width: 200px,$height: 50px);
-        text-align: center;
-        background-color: #81ee55;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+    @include tablet {
+        @include sizes(500px,120px);
+        flex-direction: row;
+        padding-bottom: 0px;
+        padding-right: 10px;
+    }
+
+    .welcomeNav{
+        @include sizes(120px,30px);
+        @include displayFlex($flexDirection: row);
+        background-image: $brandColor;
+        gap: 3px;
+        cursor: default;
+
+        #welcomeSpan{
+            font-weight: $bold;
+        }
+
+        @include tablet {
+            @include sizes(130px,100%);
+            flex-direction: row;
+        }
     }
     header{
-        @include displayFlex($flexDirection: row);
+        @include displayFlex();
         @include sizes();
         
         ul{
-            @include displayFlex($flexDirection: row);
+            @include displayFlex();
             @include sizes();
             gap: 15px;
+
+            @include tablet {
+                @include sizes(100%,100%);
+                flex-direction: row;
+            }
+
             li{
                 list-style: none;
                 @include displayFlex();
                 cursor: pointer;
-                transition: all 0.5s ease;
+                font-weight: $bold;
+                color: $lightFontColor;
 
                 img{
-                    @include sizes(35px,auto);
+                    @include sizes(70px,auto);
+                    padding: 5px;
+                    border-radius: 5px;
                 }
-                span{
-                    font-size: $lg;
-                    font-weight: 600;
+                img:hover{
+                    transform: none;
                 }
             }
             li:hover{
-                transform: scale(1.07)
+                transform: scale(1.05)
             }
         }
+    }
+    img{
+        @include sizes(45px,auto);
+        cursor: pointer;
+    }
+    img:hover{
+        transform: scale(1.05)
     }
 }
 
@@ -141,13 +175,165 @@ nav{
 main{
     @include sizes();
     @include displayFlex();
-    margin-top: 120px;
 
     //Contenedor principal
     .homeSection{
         @include displayFlex();
-        @include sizes(90%, 300px);
-        display: flex;
+        @include sizes(90%,90%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 1px $shadow;
+
+        .tarjetas{
+            @include sizes($height: 2000px);
+            @include displayFlex($justifyContent: space-between);
+            cursor: default;
+
+            #firstPageSection{
+                @include displayFlex();
+                @include sizes();
+                padding: 0px;
+                gap: 50px;
+                transform: scale(0.00001);
+                animation: changePage 0.5s ease forwards;
+
+                #totalResumeSection{
+                    @include sizes(100%,100px);
+                    @include displayFlex();
+                    padding: 15px;
+                    cursor: default;
+                }
+            }
+            #secondPageSection, #thirdPageSection{
+                @include displayFlex();
+                padding: 0px;
+                display: none;
+                transform: scale(0.00001);
+                @include sizes();
+            }
+
+            h3{
+                @include sizes($height: 70px);
+                @include displayFlex();
+                align-items: flex-start;
+                font-weight: $bold;
+                color: $lightFontColor;
+                background-image: $secondaryColor;
+                font-size: 3vw;
+                padding-left: 20px;
+            }
+            section{
+                @include sizes(95%,95%);
+                @include displayFlex();
+                padding: 15px;
+                cursor: default;
+                gap: 5px;
+                
+                span{
+                    font-size: 3vw;
+                    font-weight: $bold;
+                    @include sizes($height:100%);
+                    @include displayFlex();
+                    align-items: flex-start;
+                }
+
+                div{
+                    @include sizes(95%,100%);
+                    @include displayFlex();
+                    border-radius: 5px;
+                    cursor: default;
+                    transition: none;
+                    gap: 5px;
+
+                    img{
+                        @include sizes(70%,80%);
+                        border-radius: 10px;
+                        filter: drop-shadow(0px 0px 5px $shadow);
+                    }
+                    h4{
+                        @include sizes(70%,$height: 25%);
+                        font-weight: $noBold;
+                    }
+                    span{
+                        font-size: 2vw;
+                        font-weight: $bold;
+                        @include sizes(70%,$height:40%);
+                        @include displayFlex();
+                        align-items: flex-start;
+                    }
+                    label{
+                        font-size: 1.5vw;
+                        font-weight: $bold;
+                        @include sizes($height:40%);
+                        @include displayFlex();
+                        align-items: flex-start;
+                    }
+                    input{
+                        @include inputDesign(100%,50px);
+                    }
+                    button{
+                        @include buttonDesign($width: 70%);
+                    }
+                    button:hover{
+                        background-image: $brandColor;
+                    }
+                }
+            }
+            .perCategories, .perDates{
+                @include sizes(100%, 250px);
+                flex-direction: row;
+
+                #betweenFilter{
+                    @include displayFlex($justifyContent: space-between);
+
+                    div{
+                        border: 0px;
+                        @include sizes(100%,650px);
+                        @include displayFlex();
+                        overflow: hidden;
+                        padding: 0px;
+
+                        div{
+                            @include sizes();
+                            @include displayFlex();
+                            border: 1px solid black;
+                            overflow: hidden;
+                        }
+                    }
+                    button{
+                        @include sizes();
+                    }
+                    span{
+                        @include sizes();
+                    }
+                }
+            }
+        }
+        .dashboardPages{
+            @include sizes($height: 70px);
+            @include displayFlex();
+            margin-bottom: 15px;
+            z-index: 10000;
+
+            ul{
+                @include sizes(150px);
+                @include displayFlex($flexDirection: row, $justifyContent: space-between);
+                gap: 20px;
+
+                li{
+                    @include displayFlex();
+                    @include sizes();
+                    list-style: none;
+                    background-image: $brandColor;
+                    border-radius: 3px;
+                    padding: 5px;
+                    cursor: pointer;
+                    box-shadow: 0px 0px 5px 1px $shadow;
+                    color: $darkFontColor;
+                    font-weight: $bold;
+                    font-size: 1.5vw;
+                }
+            }
+        }
     }
 
     //Contenedor para agregar gastos (Formulario)
@@ -155,28 +341,55 @@ main{
         @include sizes();
         @include displayFlex();
         display: none;
+        gap: 10px;
+
+        .phraseMotivational{
+            @include sizes(90%,100px);
+            @include displayFlex();
+            font-size: 3vw;
+            text-align: left;
+            color: $darkFontColor;
+            box-shadow: 0px 0px 10px 1px $shadow;
+            background-image: $brandColor;
+            border-radius: 10px;
+            cursor: default;
+        }
 
         form{
             @include displayFlex();
-            @include sizes();
+            @include sizes(500px,500px);
             gap: 10px;
-            border: 1px solid black;
+            background-image: $secondaryColor;
+            border-radius: 10px;
 
             h3{
                 width: 350px;
                 cursor: default;
+                color: $lightFontColor;
+                font-weight: $noBold;
             }
             input{
                 @include inputDesign($width: 350px,$height: 40px);
+                border: 1px solid black;
+                box-shadow: none;
+                background-image: $secondaryColor;
+            }
+            input::placeholder{
+                color: $lightFontColor;
             }
             select{
                 @include inputDesign($width: 350px,$height: 40px);
+                border: 1px solid black;
+                box-shadow: none;
+                background-image: $secondaryColor;
             }
             button{
                 @include buttonDesign($width:350px);
+                color: $lightFontColor;
             }
             button:hover{
-                background-color: $brandColor;
+                background-image: $brandColor;
+                color: $darkFontColor;
             }
         }
         form input:first-child{
@@ -186,11 +399,12 @@ main{
 
     //Contenedor del historial de gastos
     .expensesContainer{
-        @include sizes($width: 90%);
+        @include sizes(95%,90%);
         @include displayFlex();
         gap: 10px;
         display: none;
         margin-top: 20px;
+        overflow: hidden;
 
         h3{
             font-size: $lg;
@@ -201,11 +415,11 @@ main{
         .expensesList{
             @include displayFlex();
             display: block;
-            @include sizes($height: 500px);
+            @include sizes(100%,100%);
             gap: 5px;
-            box-shadow: 0px 0px 10px 1px $shadow;
             overflow-y: scroll;
             padding: 15px;
+            overflow-x: hidden;
 
             .ulHeader{
                 @include displayFlex($justifyContent: space-between,$flexDirection:row);
@@ -233,9 +447,14 @@ main{
                     @include sizes(30px,auto);
                 }
                 span{
-                    @include sizes($width: 200px);
+                    @include sizes($width: 350px);
                     @include displayFlex();
                     align-items: flex-start;
+                    transition: all 0.3s ease;
+                }
+                span:hover{
+                    transform: scale(1.2);
+                    font-weight: $bold;
                 }
             }
         }
@@ -244,16 +463,20 @@ main{
     //Modales de error y éxito
     #errorSuccessModals{
         position: absolute;
-        box-shadow: 0px 0px 10px 1px $shadow;
-        border-radius: 5px;
-        padding: 10px;
-        @include sizes($width:230px,$height:40px);
-        @include displayFlex($justifyContent:space-between,$flexDirection:row);
-        top: 150px;
-        z-index: 99999;
+        @include sizes($width:200%);
+        @include displayFlex($flexDirection:row);
+        z-index: 1000000;
         transform: translateY(-1500px);
-        display: none;
+        background-color: transparent;
 
+        .fullscreenContainer{
+            box-shadow: 0px 0px 10px 1px $shadow;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: -300px;
+            @include sizes(250px,50px);
+            @include displayFlex($justifyContent:space-between,$flexDirection:row);
+        }
         span{
             color: $darkFontColor;
             font-weight: $bold;
@@ -267,5 +490,8 @@ main{
 
 //Animaciones
 @keyframes fadeInModal {
-    100%{transform: translateY(50px);}
+    100%{transform: translateY(0px);}
+}
+@keyframes changePage {
+    100%{transform: scale(1);}
 }

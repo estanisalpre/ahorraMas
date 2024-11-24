@@ -1,7 +1,11 @@
+//Importamos
+@import "_mediaQueries";
+
 //Variables
 $backgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-$brandColor: #09e668;
-$secondaryColor: #2c4ba9;
+$brandColor: linear-gradient(120deg, #b6e154 0%, #96e6a1 100%);
+$secondaryColor: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$backgroundDarkImage: linear-gradient(to right, #434343 0%, black 100%);
 $darkFontColor: #272727;
 $lightFontColor: #e3e3e3;
 $shadow: #9d9c9c;
@@ -16,7 +20,7 @@ $montserratFont: "Montserrat", sans-serif;
 $fontAfacada: "Afacad Flux", sans-serif;
 $fontOpenSans: "Open Sans", sans-serif;
 $fontNerkoOne: "Nerko One", cursive;
-$fontPlaywrite: "Playwrite CU", cursive;
+$fontPlaywrite: "Playwrite GB S", serif;
 
 //Mixins
 @mixin sizes($width: 100%, $height: 100%){
@@ -62,6 +66,10 @@ $fontPlaywrite: "Playwrite CU", cursive;
     padding-left: 10px;
     box-shadow: 0px 0px 5px 1px $shadow;
 }
+@mixin animation($name: opacityFadeIn, $duration: 1s){
+    animation: $name forwards ease;
+    animation-duration: $duration;
+}
 
 //Generales
 *{
@@ -72,12 +80,14 @@ $fontPlaywrite: "Playwrite CU", cursive;
 
 //Html & Body
 html{
-    @include sizes();
+    @include sizes($height: 3500px);
+    scroll-behavior: smooth;
+    scroll-padding: 8rem;
 }
 body{
-    @include sizes();
-    @include displayFlex();
+    @include sizes($height: 3500px);
     font-family: $fontAfacada;
+    background-image: $backgroundImage;
 }
 
 //Nav
@@ -87,10 +97,14 @@ nav{
     top: 0;
     z-index: 1000;
     @include displayFlex($justifyContent: space-between);
+    transform: translateY(-500px);
+    @include animation(translateY,1s);
+    box-shadow: 0px 0px 10px 1px black;
 
     header{
         @include sizes($height:50px);
-        background-color: $secondaryColor;
+        @include displayFlex();
+        background-image: $secondaryColor;
         z-index: 998;
 
         ul{
@@ -109,14 +123,15 @@ nav{
                 transition: all 0.5s ease;
             }
             li:hover{
-                border-bottom: 1px solid $brandColor;
+                border-bottom: 1px solid $darkFontColor;
             }
         }
     }
     .bottomHeader{
         @include sizes($height:70px);
         @include displayFlex($justifyContent: space-between,$flexDirection:row);
-        background-color: $brandColor;
+        background-image: none;
+        backdrop-filter: blur(5px);
         padding-left: 30px;
         padding-right: 30px;
         z-index: 999;
@@ -139,9 +154,12 @@ nav{
 
                 button{
                     @include buttonDesign($width:100px);
+                    background-image: $secondaryColor;
+                    border: 0px;
+                    color: $lightFontColor;
                 }
                 button:hover{
-                    background-color: $lightFontColor;
+                    transform: scale(1.05);
                 }
             }
             li:hover{
@@ -153,51 +171,81 @@ nav{
 
 //Main
 main{
-    @include sizes();
-    @include displayFlex();
-    background-image: $backgroundImage;
+    @include sizes($height:3500px);
+    @include displayFlex($justifyContent: space-around);
+    padding-top: 120px;
+    padding-bottom: 50px;
+
+    @include tablet {
+        padding-top: 320px;
+    }
 
     section{
         @include sizes();
         @include displayFlex($flexDirection:row);
         padding: 20px;
         gap: 10px;
-    }
+    } 
 
     //Contenedor principal
     .principalContainer{
+        @include sizes($height: 500px);
+        @include displayFlex($flexDirection:row);
+        
+        @include tablet {
+            flex-direction: column;
+        }
+
         img{
             @include sizes($width: auto, $height: 70%);
             border-radius: 20px;
             box-shadow: 0px 0px 10px 1px $shadow;
+        
+            @include tablet {
+                @include sizes($width: auto, $height: 60%);
+            }
+        }
+        #principalImage{
+            transform: translateX(-1000px);
+            @include animation(translateX,1s);
+        }
+        #imgPhoneApp{
+            transform: translateX(1000px);
+            @include animation(translateX,1s);
         }
 
         article{
             @include displayFlex();
-            @include sizes($width:70%);
+            @include sizes($width:60%, $height:70%);
             cursor: default;
+            gap: 25px;
+            box-shadow: 0px 0px 10px 1px $shadow;
+            opacity: 0;
+            @include animation(opacityFadeIn,5s);
+            background-image: $secondaryColor;
+
+            @include tablet {
+                @include sizes(90%,$height: 70%);
+                justify-content: space-between;
+                padding: 25px;
+            }
 
             h1{
-                font-size: $slg;
-                width: 55%;
-                font-weight: $noBold;
-            }
-            h4{
-                font-family: $fontPlaywrite;
-                font-size: $sm;
-                text-align: left;
-                width: 55%;
-                font-weight: $noBold;
-            }
-            p{
-                width: 55%;
-                text-align: justify;
+                font-size: 3vw;
+                width: 90%;
+                font-weight: $bold;
+                text-align: center;
+                color: $lightFontColor;
             }
             ul{
                 @include displayFlex();
-                @include sizes($width:55%,$height: 20%);
+                @include sizes($width:90%,$height: 50%);
                 gap: 5px;
                 border-radius: 20px;
+
+                @include tablet {
+                    height: 100%;
+                }
 
                 li{
                     width: 100%;
@@ -221,35 +269,187 @@ main{
         }
     }
 
-    //REGISTER.HTML
-    .registerForm, .loginForm{
-        @include sizes();
+    //Contenedor de la frase
+    .phraseContainer{
+        @include sizes(90%,$height: 250px);
         @include displayFlex();
-        gap: 5px;
+        box-shadow: 0px 0px 10px 1px $shadow;
+        border-radius: 10px;
         cursor: default;
+        color: $darkFontColor;
+        opacity: 0;
+        @include animation(opacityFadeIn,7s);
+        background-image: url(/src/assets/img/cloudsBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: left;
 
-        h1{
-            font-size: $md;
-            width: 300px;
+        @include tablet {
+            margin-top: 250px;
         }
-        input{
-            @include inputDesign();
-        }
-        button{
-            @include buttonDesign($width: 300px);
-        }
-        button:hover{
-            background-color: $brandColor;
-        }
-        p{
-            width: 300px;
-        }
-        #toLogin, #toRegister{
-            cursor: pointer;
-            color: $secondaryColor;
-            font-weight: $bold;
+
+        h3{
+            @include sizes();
+            text-align: center;
+            font-family: $fontPlaywrite;
+            font-size: 3vw;
+            
         }
     }
+
+    //Sobre ahorra+ Contenedor
+    .aboutUsContainer{
+        @include sizes(95%,450px);
+        @include displayFlex();
+        padding: 0px;
+        cursor: default;
+        box-shadow: 0px 0px 10px 1px $shadow;
+        overflow: hidden;
+        align-items: flex-start;
+
+        .aboutUsTitle{
+            @include sizes($height: 30%);
+            @include displayFlex();
+            align-items: flex-start;
+            background-image: $secondaryColor;
+            padding-left: 20px;
+
+            h3{
+                font-size: 3vw;
+            }
+        }
+        article{
+            @include sizes($height: 70%);
+            padding: 10px;
+            
+            p{
+                font-size: 1vw;
+            }
+        }
+        button{
+            @include buttonDesign(150px);
+            height: 50px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+        button:hover{
+            background-image: $brandColor;
+        }
+    }
+
+    //Seccion de ayuda
+    #helpSection{
+        @include displayFlex();
+        @include sizes(100%,550px);
+        background-image: $brandColor;
+        box-shadow: 0px 0px 20px 3px $shadow;
+        cursor: default;
+
+        h3{ 
+            @include sizes(100%,100px);
+            @include displayFlex();
+            color: $darkFontColor;
+            font-size: 2vw;
+        }
+        .faqContainer {
+            width: 100%;
+            max-width: 600px;
+            background-color: $lightFontColor;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            .faqQuestion {
+                background-image: $secondaryColor;
+                color: #fff;
+                padding: 15px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #ddd;
+    
+                .icon {
+                    font-size: 18px;
+                }
+            }
+            
+            .faqQuestion:hover {
+                background-color: #3e9041;
+            }
+            
+            .faqAnswer {
+                display: none;
+                padding: 15px 20px;
+                background-color: #f9f9f9;
+                color: #333;
+                font-size: 15px;
+                line-height: 1.5;
+    
+                p{
+                    margin: 0;
+                }
+            }
+        }
+
+        p{
+            @include displayFlex($flexDirection:row);
+            @include sizes(95%,$height: 50px);
+            gap: 5px;
+
+            span{
+                font-weight: $bold;
+                cursor: pointer;
+            }
+            span:hover{
+                border-bottom: 1px solid #764ba2;
+            }
+        }
+    }
+
+    //REGISTER.HTML - LOGIN.HTML
+    .loginMain, .registerMain{
+        @include sizes($height: 500px);
+        border: 10px solid red;
+        
+        .login, .register{
+            @include sizes();
+            @include displayFlex();
+            border: 5px solid black;
+    
+            .registerForm, .loginForm{
+                @include sizes();
+                @include displayFlex();
+                gap: 5px;
+                cursor: default;
+                border: 1px solid green;
+        
+                h1{
+                    font-size: $md;
+                    width: 300px;
+                }
+                input{
+                    @include inputDesign();
+                }
+                button{
+                    @include buttonDesign($width: 300px);
+                }
+                button:hover{
+                    background-color: $brandColor;
+                }
+                p{
+                    width: 300px;
+                }
+                #toLogin, #toRegister{
+                    cursor: pointer;
+                    color: $secondaryColor;
+                    font-weight: $bold;
+                }
+            }
+        }
+    }
+    
 
     //Modales de error y éxito
     #errorSuccessModals{
@@ -280,20 +480,75 @@ footer{
     @include sizes($height: 30px);
     bottom: 0;
     position: fixed;
-    background-color: $secondaryColor;
+    background-image: $secondaryColor;
     overflow: hidden;
     transition: all 0.5s ease-in-out;
-    @include displayFlex();
+    @include displayFlex($flexDirection:row, $justifyContent:space-between);
+    transform: translateY(500px);
+    padding-left: 50px;
+    padding-right: 50px;
+    @include animation(footerAnimation,1s);
+
+    @include tablet {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 250px;
+        opacity: 1;
+    }
 
     img{
         @include sizes(100px,auto);
     }
+    .teamMembers{
+        @include sizes($width: 500px, $height:250px);
+        @include displayFlex($flexDirection:row);
+        gap: 20px;
+
+        @include tablet {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h3{
+            color: $lightFontColor;
+        }
+
+        #imgGroup{
+            @include sizes(400px,250px);
+            filter: drop-shadow(0px 0px 5px black);
+            transition: all 0.3s ease;
+            transform: translateY(-30px);
+            cursor: pointer;
+        }
+        #imgGroup:hover{
+            filter: brightness(1.1);
+            filter: saturate(1.1);
+        }
+    }
 }
 footer:hover{
-    height: 150px;
+    height: 190px;
+
+    @include tablet {
+        height: 300px;
+    }
 }
 
 //Animaciones
 @keyframes fadeInModal {
     100%{transform: translateY(50px);}
+}
+@keyframes opacityFadeIn {
+    100%{opacity: 1;}
+}
+@keyframes translateX {
+    100%{transform: translateX(0px);}
+}
+@keyframes translateY {
+    100%{transform: translateY(0px);}
+}
+@keyframes footerAnimation {
+    50%{transform: translateY(50px);}
+    75%{transform: translateY(-25px);}
+    100%{transform: translateY(0px);}
 }

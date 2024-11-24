@@ -34,18 +34,23 @@ export function registerNewSpent(){
             const userIndex = users.findIndex(user => user.email === getUserEmail) //Buscamos el index para tener el control de la lista
             const newSpent = users[userIndex].spentHistory; //Traemos el spentHistory array
 
-            if(userExists){
-                //Al array spentHistory le pusheamos los datos obtenidos en "spent"
-                newSpent.push(spent)
-
-                //Guardamos en localstorage
-                localStorage.setItem('users', JSON.stringify(users))
-
-                //Mensaje de éxito
-                const successMessage = "¡Gasto registrado!"
-                successModal(successMessage);
+            if(spent.value !== "" && spent.description !== "" && spent.date !== ""){
+                if(userExists){
+                    //Al array spentHistory le pusheamos los datos obtenidos en "spent"
+                    newSpent.push(spent)
+    
+                    //Guardamos en localstorage
+                    localStorage.setItem('users', JSON.stringify(users))
+    
+                    //Mensaje de éxito
+                    const successMessage = "¡Gasto registrado!"
+                    successModal(successMessage);
+                } else {
+                    const errorMessage = 'Error'
+                    errorModal(errorMessage);
+                }
             } else {
-                const errorMessage = 'Error'
+                const errorMessage = 'Campos incompletos'
                 errorModal(errorMessage);
             }
         })

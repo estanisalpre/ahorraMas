@@ -1,0 +1,382 @@
+//Importamos
+@import "_mediaQueries";
+
+//Variables
+$backgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+$brandColor: linear-gradient(120deg, #b6e154 0%, #96e6a1 100%);
+$secondaryColor: linear-gradient(135deg, #667eea 0%, #764ba2 100%);;
+$darkFontColor: #272727;
+$lightFontColor: #e3e3e3;
+$shadow: #9d9c9c;
+$errorColor: rgb(245, 106, 106);
+$sm: 14px;
+$md: 16px;
+$lg: 22px;
+$slg: 30px;
+$noBold: 400;
+$bold: 600;
+$montserratFont: "Montserrat", sans-serif;
+$fontAfacada: "Afacad Flux", sans-serif;
+$fontOpenSans: "Open Sans", sans-serif;
+$fontNerkoOne: "Nerko One", cursive;
+$fontPlaywrite: "Playwrite GB S", serif;
+
+//Mixins
+@mixin sizes($width: 100%, $height: 100%){
+    width: $width;
+    height: $height;
+}
+@mixin displayFlex($justifyContent: center, $flexDirection: column){
+    display: flex;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+    align-items: center;
+}
+@mixin fontConfig($textAlign: center, $fontSize: $sm, $fontWeight: $noBold, $fontColor: $darkFontColor){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    text-align: $textAlign;
+}
+@mixin buttonDesign($width: 100%){
+    padding: 2px;
+    border: 1px solid $darkFontColor;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: $fontAfacada;
+    width: $width;
+    height: 40px;
+    text-align: center;
+    font-weight: $bold;
+    font-size: $sm;
+    color: $lightFontColor;
+    cursor: pointer;
+}
+@mixin inputDesign($width: 300px, $height: 40px){
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    width: $width;
+    height: $height;
+    background-color: transparent;
+    font-size: $md;
+    font-family: $fontAfacada;
+    padding-left: 10px;
+}
+@mixin animation($name: opacityFadeIn, $duration: 1s){
+    animation: $name forwards ease;
+    animation-duration: $duration;
+}
+
+//Generales
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//Html & Body
+html{
+    @include sizes();
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    @include tablet {
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+}
+body{
+    @include sizes();
+    @include displayFlex();
+    font-family: $fontAfacada;
+    background-image: $backgroundImage;
+}
+
+//Nav
+nav{
+    @include sizes($height: 120px);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    @include displayFlex($justifyContent: space-between);
+    transform: translateY(-500px);
+    @include animation(translateY,1s);
+    box-shadow: 0px 0px 10px 1px black;
+
+    header{
+        @include sizes($height:50px);
+        @include displayFlex();
+        background-image: $secondaryColor;
+        z-index: 998;
+
+        ul{
+            @include sizes();
+            @include displayFlex($justifyContent:space-around, $flexDirection:row);
+
+            li{
+                @include displayFlex();
+                list-style: none;
+                font-size: $sm;
+                cursor: pointer;
+                color: $lightFontColor;
+                font-weight: 400;
+                display: flex;
+                padding: 1px;
+                transition: all 0.5s ease;
+            }
+            li:hover{
+                border-bottom: 1px solid $darkFontColor;
+            }
+        }
+    }
+    .bottomHeader{
+        @include sizes($height:70px);
+        @include displayFlex($justifyContent: space-between,$flexDirection:row);
+        background-image: none;
+        backdrop-filter: blur(5px);
+        padding-left: 30px;
+        padding-right: 30px;
+        z-index: 999;
+
+        img{
+            @include sizes($width: auto,$height:70px);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        img:hover{
+            transform: translateX(15px);
+        }
+        ul{
+            @include sizes($width:25%,$height:100%);
+            @include displayFlex($flexDirection:row);
+            gap: 20px;
+
+            li{
+                list-style: none;
+
+                button{
+                    @include buttonDesign($width:100px);
+                    background-image: $secondaryColor;
+                    border: 0px;
+                    color: $lightFontColor;
+                }
+                button:hover{
+                    transform: scale(1.05);
+                }
+            }
+            li:hover{
+                border-bottom: 0px;
+            }
+        }
+    }
+}
+
+//Main
+main{
+    @include sizes($height:600px);
+    @include displayFlex($flexDirection: row);
+    margin-top: 150px;
+    gap: 25px;
+    padding: 30px;
+
+    @include tablet {
+        margin-top: 0px;
+    }
+
+    //REGISTER.HTML - LOGIN.HTML
+    .registerForm, .loginForm{
+        @include sizes(400px,100%);
+        @include displayFlex();
+        gap: 5px;
+        cursor: default;
+        background-image: $secondaryColor;
+        border-radius: 20px;
+
+        @include tablet{
+            width: 50%;
+            height: 50%;
+        }
+                h1{
+                    font-size: $md;
+                    color: $lightFontColor;
+                    font-weight: $noBold;
+                    $width: 80%;
+
+                    @include tablet {
+                        width: 90%;
+                    }
+                }
+                input{
+                    @include inputDesign($width: 80%);
+                    background-image: $backgroundImage;
+                    color: $darkFontColor;
+
+                    @include tablet {
+                        @include inputDesign(90%,40px)
+                    }
+                }
+                button{
+                    @include buttonDesign($width: 80%);
+
+                    @include tablet {
+                        @include buttonDesign(90%);
+                    }
+                }
+                button:hover{
+                    background-image: $brandColor;
+                    color: $darkFontColor;
+                }
+                p{
+                    $width: 80%;
+
+                    @include tablet {
+                        width: 90%;
+                    }
+                }
+                #toLogin, #toRegister{
+                    cursor: pointer;
+                    color: $lightFontColor;
+                    font-weight: $bold;
+                    $width: 80%;
+
+                    @include tablet {
+                        width: 90%;
+                        height: 90%;
+                    }
+                }
+    }
+    #profileImgs{
+        @include sizes(90%,$height:100px);
+        @include displayFlex($flexDirection:row);
+        
+        div{
+            @include sizes();
+            @include displayFlex();
+
+            input{
+                border-radius: 50%;
+                @include sizes(15px,15px);
+                border: 0px;
+                cursor: pointer;
+            }
+            img{
+                @include sizes(70px,auto);
+                border-radius: 50px;
+            }
+        }
+    }
+    #registerImg{
+        @include sizes(30%,60%);
+        opacity: 0.4;
+        position: absolute;
+        right: 100px;
+
+        @include tablet{
+            width: 50%;
+            height: 60%;
+        }
+    }
+}
+
+//Modales de error y éxito
+#errorSuccessModalLogReg{
+        position: absolute;
+        box-shadow: 0px 0px 10px 1px $shadow;
+        border-radius: 5px;
+        padding: 10px;
+        @include sizes($width:230px,$height:40px);
+        @include displayFlex($justifyContent:space-between,$flexDirection:row);
+        top: 150px;
+        z-index: 99999;
+        transform: translateY(-1500px);
+        display: none;
+
+        span{
+            color: $darkFontColor;
+            font-weight: $bold;
+        }
+        img{
+            @include sizes($width: 20px, $height: auto);
+            cursor: pointer;
+        }
+}
+
+//Footer
+footer{
+    @include sizes($height: 30px);
+    bottom: 0;
+    position: fixed;
+    background-image: $secondaryColor;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    @include displayFlex($flexDirection:row, $justifyContent:space-between);
+    transform: translateY(500px);
+    padding-left: 50px;
+    padding-right: 50px;
+    @include animation(footerAnimation,1s);
+
+    @include tablet {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 250px;
+        opacity: 1;
+    }
+
+    img{
+        @include sizes(100px,auto);
+    }
+    .teamMembers{
+        @include sizes($width: 500px, $height:250px);
+        @include displayFlex($flexDirection:row);
+        gap: 20px;
+
+        @include tablet {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h3{
+            color: $lightFontColor;
+        }
+
+        #imgGroup{
+            @include sizes(400px,250px);
+            filter: drop-shadow(0px 0px 5px black);
+            transition: all 0.3s ease;
+            transform: translateY(-30px);
+            cursor: pointer;
+        }
+        #imgGroup:hover{
+            filter: brightness(1.1);
+            filter: saturate(1.1);
+        }
+    }
+}
+footer:hover{
+    height: 190px;
+
+    @include tablet {
+        height: 300px;
+    }
+}
+
+//Animaciones
+@keyframes fadeInModal {
+    100%{transform: translateY(50px);}
+}
+@keyframes opacityFadeIn {
+    100%{opacity: 1;}
+}
+@keyframes translateX {
+    100%{transform: translateX(0px);}
+}
+@keyframes translateY {
+    100%{transform: translateY(0px);}
+}
+@keyframes footerAnimation {
+    50%{transform: translateY(50px);}
+    75%{transform: translateY(-25px);}
+    100%{transform: translateY(0px);}
+}

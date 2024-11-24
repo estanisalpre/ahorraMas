@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar - Ahorra+</title>
     <!--Link CSS-->
-    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <link rel="stylesheet" href="/src/assets/styles/loginRegister.css">
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,19 +31,19 @@
     </nav>
     <!--CONTENIDO PRINCIPAL (FORMULARIO)-->
     <main>
-        <section>
-            <form class="loginForm">
-                <h1>Ingresa con las siguientes credenciales</h1>
-                <input type="email" name="email" id="email" required placeholder="Correo electrónico">
-                <input type="password" name="password" id="password" required placeholder="Contraseña">
-                <button id="loginUser">Ingresar</button>
-                <p>¿Ya tienes cuenta? <span id="toRegister">Registrarme</span></p>
-            </form>
-        </section>
-        <section id="errorSuccessModals">
-            <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
-        </section>
+        <form class="loginForm">
+            <h1>Ingresa con las siguientes credenciales</h1>
+            <input type="email" name="email" id="email" required placeholder="Correo electrónico">
+            <input type="password" name="password" id="password" required placeholder="Contraseña">
+            <button id="loginUser">Ingresar</button>
+            <p>¿Ya tienes cuenta? <span id="toRegister">Registrarme</span></p>
+        </form>  
+        <img src="/src/assets/img/loginBackground.png" alt="Imagen referencial de loguearse en una app">
     </main>
+    <!--MODALES DE ERROR O ÉXITO-->
+    <section id="errorSuccessModalLogReg">
+        <span id="modalMessageLogReg"></span><img id="closeModalLogReg" src="/src/assets/img/icons/close.png" alt="Close Icon">
+    </section>
     <!--FOOTER-->
     <footer>
         <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Logo Ahorra+">

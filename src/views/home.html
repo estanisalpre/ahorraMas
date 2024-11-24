@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahorra+ - Portal</title>
+    <title>Ahorra+ Portal</title>
     <!--CSS-->
     <link rel="stylesheet" href="/src/assets/styles/home.css">
     <!--Google fonts-->
@@ -16,35 +16,106 @@
 <body>
     <!--NAV & HEADER-->
     <nav>
-        <p>¿Qué deseas hacer?</p>
+        <div class="welcomeNav">
+            <span>Hola,</span><span id="welcomeSpan"></span>
+        </div>
         <header>
             <ul>
-                <li id="homeButton"><img src="/src/assets/img/icons/home.png" alt="Home Icon"></li>
-                <li id="addButton"><img src="/src/assets/img/icons/add.png" alt="Add Icon"></li>
-                <li id="expensesButton"><img src="/src/assets/img/icons/expenses.png" alt="Expenses Icon"></li>
-                <li><img id="logOutButton" src="/src/assets/img/icons/logOut.png" alt="Logout Icon"></li>
+                <li id="homeButton"><img src="/src/assets/img/icons/home.png" alt="Home Icon">INICIO</li>
+                <li id="addButton"><img src="/src/assets/img/icons/add.png" alt="Add Icon">NUEVO GASTO</li>
+                <li id="expensesButton"><img src="/src/assets/img/icons/expenses.png" alt="Expenses Icon">HISTORIAL</li>
             </ul>
         </header>
+        <img id="logOutButton" src="/src/assets/img/icons/logOut.png" alt="Logout Icon">
     </nav>
     <!--CONTENIDO PRINCIPAL-->
     <main>
         <!--SECCION PRINCIPAL-->
         <section id="homeSection" class="homeSection">
-            <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Ahorra+ Logotype">
+            <!--DASHBOARD-->
+            <div class="tarjetas">
+                <!--FIRST PAGE (1)-->
+                <section id="firstPageSection">
+                    <h3>Suma total de gastos</h3>
+                    <section id="totalResumeSection">
+                        <span id="totalExpenses"></span>
+                    </section>
+                    <h3>Por categorías</h3>
+                    <section class="perCategories">
+                        <div id="transportExpenses">
+                            <img src="../assets/img/transport.png" alt="Transporte Imagen Referencial">
+                            <h4>Transporte 🚌</h4>
+                            <span id="totalTransport"></span>
+                            <button id="detailsButton">Ver detalles</button>
+                        </div>
+                        <div id="foodExpenses">
+                            <img src="../assets/img/food.png" alt="Comida Imagen Referencial">
+                            <h4>Alimentación 🍞</h4>
+                            <span id="totalFood"></span>
+                            <button id="foodDetailButton">Ver detalles</button>
+                        </div>
+                        <div id="entertainmentExpenses">
+                            <img src="../assets/img/entertainment.png" alt="Entretenimiento Imagen Referencial">
+                            <h4>Entretenimiento 🎮</h4>
+                            <span id="totalEntertainment"></span>
+                            <button id="entertainmentDetailButton">Ver detalles</button>
+                        </div>
+                    </section>
+                </section>
+                <!--SECOND PAGE (2)-->
+                <section id="secondPageSection">
+                    <h3>Por fechas</h3>
+                    <section class="perDates">
+                        <div id="dateFilter">
+                            <h4>¿Quieres saber el gasto en fecha específica?</h4>
+                            <input type="date" name="date" id="dateHome" required>
+                            <button id="dateFilterButton">Filtrar</button>
+                            <span id="dateSpan"></span>
+                        </div>
+                        <div id="betweenFilter">
+                            <div class="dates">
+                                <div class="initialDate">
+                                    <label for="initialDate">Fecha inicial</label>
+                                    <input type="date" name="initialDate" id="initialDate" required>
+                                </div>
+                                <div class="finalDate">
+                                    <label for="finalDate">Fecha final</label>
+                                    <input type="date" name="finalDate" id="finalDate" required>
+                                </div>
+                            </div>
+                            <button id="betweenDateFilterButton">Filtrar</button>
+                            <span id="betweenDateSpan"></span>
+                        </div>
+                    </section>
+                </section>
+                <!--THIRD PAGE (3)-->
+                <section id="thirdPageSection">
+                    <h1>third page</h1>
+                </section>
+            </div>
+
+            <section id="dashboardPages" class="dashboardPages">
+                <ul>
+                    <li id="firstPage">1</li>
+                    <li id="secondPage">2</li>
+                    <li id="thirdPage">3</li>
+                </ul>
+            </section>
         </section>
         <!--SECCION DE FORMULARIO PARA AGREGAR GASTOS-->
         <section id="addSection" class="addSection">
+            <h3 class="phraseMotivational">El dinero que ahorras hoy... es la libertad que disfrutas mañana.</h3>
             <form>
                 <h3>Registra un nuevo gasto aquí</h3>
                 <input type="text" name="description" id="description" required placeholder="Describe el gasto">
                 <input type="date" name="date" id="date" required>
-                <input type="number" name="value" id="value" required placeholder="¿Cuánto?">
+                <input type="number" name="value" id="value" required placeholder="¿Cuánto gastaste?">
                 <select id="category">
                     <option value="transporte">Transporte</option>
                     <option value="alimentos">Alimentos</option>
                     <option value="entretenimiento">Entretenimiento</option>
                 </select>
-                <button id="registerButton" type="submit">Registrar</button>
+                <button id="registerButton">Registrar</button>
             </form>
         </section>
         <!--SECCION DE HISTORIAL DE GASTOS-->
@@ -62,7 +133,9 @@
         </section>
         <!--MODALES ERROR Y ÉXITO-->
         <section id="errorSuccessModals">
-            <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
+            <div id="fullscreenContainer" class="fullscreenContainer">
+                <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
+            </div>
         </section>
     </main>
     <!--FOOTER-->

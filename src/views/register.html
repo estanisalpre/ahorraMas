@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarme - Ahorra+</title>
     <!--Link CSS-->
-    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <link rel="stylesheet" href="/src/assets/styles/loginRegister.css">
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,20 +31,35 @@
     </nav>
     <!--CONTENIDO PRINCIPAL (FORMULARIO)-->
     <main>
-       <section>
-            <form class="registerForm">
-                <h1>Regístrate con las siguientes credenciales</h1>
-                <input type="text" name="username" id="username" required placeholder="Nombre">
-                <input type="email" name="email" id="email" required placeholder="Correo electrónico">
-                <input type="password" name="password" id="password" required placeholder="Contraseña">
-                <button type="submit" id="registerUser">Registrarme</button>
-                <p>¿Ya tienes cuenta? <span id="toLogin">Ingresar</span></p>
-            </form>
-       </section>
-       <section id="errorSuccessModals">
-            <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
-       </section>
+        <form class="registerForm">
+            <h1>Regístrate con las siguientes credenciales</h1>
+            <input type="text" name="username" id="username" required placeholder="Nombre">
+            <input type="email" name="email" id="email" required placeholder="Correo electrónico">
+            <input type="password" name="password" id="password" required placeholder="Contraseña">
+            <div id="profileImgs">
+                <div>
+                    <label for="profileImg"><img src="/src/assets/img/profiles/profile-1.png" alt=""></label>
+                    <input type="radio" name="profileImg" id="profile" value="1" required>                </div>
+                <div>
+                    <label for="profileImg2"><img src="/src/assets/img/profiles/profile-2.png" alt=""></label>
+                    <input type="radio" name="profileImg" id="profile" value="2" required>
+                </div>
+                <div>
+                    <label for="profileImg3"><img src="/src/assets/img/profiles/profile-3.png" alt=""></label>
+                    <input type="radio" name="profileImg" id="profile" value="3" required>                </div>
+                <div>
+                    <label for="profileImg4"><img src="/src/assets/img/profiles/profile-4.png" alt=""></label>
+                    <input type="radio" name="profileImg" id="profile" value="4" required>                </div>
+            </div>
+            <button type="submit" id="registerUser">Registrarme</button>
+            <p>¿Ya tienes cuenta? <span id="toLogin">Ingresar</span></p>
+        </form>
+        <img id="registerImg" src="/src/assets/img/registerBackground.png" alt="Imagen referencial de registrarse en una app">
     </main>
+    <!--MODALES DE ERROR O ÉXITO-->
+    <section id="errorSuccessModalLogReg">
+        <span id="modalMessageLogReg"></span><img id="closeModalLogReg" src="/src/assets/img/icons/close.png" alt="Close Icon">
+    </section>
     <!--FOOTER-->
     <footer>
         <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Logo Ahorra+">

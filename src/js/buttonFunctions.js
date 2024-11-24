@@ -1,5 +1,4 @@
 //Funciones de botones
-import { showSpentList } from "./controllers.js"
 
 export function navButtons(){
     const expensesButton = document.getElementById('expensesButton')

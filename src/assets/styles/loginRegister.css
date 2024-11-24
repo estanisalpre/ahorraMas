@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 1100px) {
+  html {
+    overflow-y: visible;
+    overflow-x: visible;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Afacad Flux", sans-serif;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+nav {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-500px);
+  animation: translateY forwards ease;
+  animation-duration: 1s;
+  box-shadow: 0px 0px 10px 1px black;
+}
+nav header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 998;
+}
+nav header ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+nav header ul li {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #e3e3e3;
+  font-weight: 400;
+  display: flex;
+  padding: 1px;
+  transition: all 0.5s ease;
+}
+nav header ul li:hover {
+  border-bottom: 1px solid #272727;
+}
+nav .bottomHeader {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-image: none;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding-left: 30px;
+  padding-right: 30px;
+  z-index: 999;
+}
+nav .bottomHeader img {
+  width: auto;
+  height: 70px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+nav .bottomHeader img:hover {
+  transform: translateX(15px);
+}
+nav .bottomHeader ul {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+nav .bottomHeader ul li {
+  list-style: none;
+}
+nav .bottomHeader ul li button {
+  padding: 2px;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Afacad Flux", sans-serif;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #e3e3e3;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 0px;
+  color: #e3e3e3;
+}
+nav .bottomHeader ul li button:hover {
+  transform: scale(1.05);
+}
+nav .bottomHeader ul li:hover {
+  border-bottom: 0px;
+}
+
+main {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 150px;
+  gap: 25px;
+  padding: 30px;
+}
+@media screen and (max-width: 1100px) {
+  main {
+    margin-top: 0px;
+  }
+}
+main .registerForm, main .loginForm {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: default;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm, main .loginForm {
+    width: 50%;
+    height: 50%;
+  }
+}
+main .registerForm h1, main .loginForm h1 {
+  font-size: 16px;
+  color: #e3e3e3;
+  font-weight: 400;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm h1, main .loginForm h1 {
+    width: 90%;
+  }
+}
+main .registerForm input, main .loginForm input {
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  width: 80%;
+  height: 40px;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Afacad Flux", sans-serif;
+  padding-left: 10px;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  color: #272727;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm input, main .loginForm input {
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    width: 90%;
+    height: 40px;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: "Afacad Flux", sans-serif;
+    padding-left: 10px;
+  }
+}
+main .registerForm button, main .loginForm button {
+  padding: 2px;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Afacad Flux", sans-serif;
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #e3e3e3;
+  cursor: pointer;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm button, main .loginForm button {
+    padding: 2px;
+    border: 1px solid #272727;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: "Afacad Flux", sans-serif;
+    width: 90%;
+    height: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #e3e3e3;
+    cursor: pointer;
+  }
+}
+main .registerForm button:hover, main .loginForm button:hover {
+  background-image: linear-gradient(120deg, #b6e154 0%, #96e6a1 100%);
+  color: #272727;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm p, main .loginForm p {
+    width: 90%;
+  }
+}
+main .registerForm #toLogin, main .registerForm #toRegister, main .loginForm #toLogin, main .loginForm #toRegister {
+  cursor: pointer;
+  color: #e3e3e3;
+  font-weight: 600;
+}
+@media screen and (max-width: 1100px) {
+  main .registerForm #toLogin, main .registerForm #toRegister, main .loginForm #toLogin, main .loginForm #toRegister {
+    width: 90%;
+    height: 90%;
+  }
+}
+main #profileImgs {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+main #profileImgs div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+main #profileImgs div input {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  border: 0px;
+  cursor: pointer;
+}
+main #profileImgs div img {
+  width: 70px;
+  height: auto;
+  border-radius: 50px;
+}
+main #registerImg {
+  width: 30%;
+  height: 60%;
+  opacity: 0.4;
+  position: absolute;
+  right: 100px;
+}
+@media screen and (max-width: 1100px) {
+  main #registerImg {
+    width: 50%;
+    height: 60%;
+  }
+}
+
+#errorSuccessModalLogReg {
+  position: absolute;
+  box-shadow: 0px 0px 10px 1px #9d9c9c;
+  border-radius: 5px;
+  padding: 10px;
+  width: 230px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  top: 150px;
+  z-index: 99999;
+  transform: translateY(-1500px);
+  display: none;
+}
+#errorSuccessModalLogReg span {
+  color: #272727;
+  font-weight: 600;
+}
+#errorSuccessModalLogReg img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  position: fixed;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  transform: translateY(500px);
+  padding-left: 50px;
+  padding-right: 50px;
+  animation: footerAnimation forwards ease;
+  animation-duration: 1s;
+}
+@media screen and (max-width: 1100px) {
+  footer {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    opacity: 1;
+  }
+}
+footer img {
+  width: 100px;
+  height: auto;
+}
+footer .teamMembers {
+  width: 500px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+@media screen and (max-width: 1100px) {
+  footer .teamMembers {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+footer .teamMembers h3 {
+  color: #e3e3e3;
+}
+footer .teamMembers #imgGroup {
+  width: 400px;
+  height: 250px;
+  filter: drop-shadow(0px 0px 5px black);
+  transition: all 0.3s ease;
+  transform: translateY(-30px);
+  cursor: pointer;
+}
+footer .teamMembers #imgGroup:hover {
+  filter: brightness(1.1);
+  filter: saturate(1.1);
+}
+
+footer:hover {
+  height: 190px;
+}
+@media screen and (max-width: 1100px) {
+  footer:hover {
+    height: 300px;
+  }
+}
+
+@keyframes fadeInModal {
+  100% {
+    transform: translateY(50px);
+  }
+}
+@keyframes opacityFadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes translateX {
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes translateY {
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes footerAnimation {
+  50% {
+    transform: translateY(50px);
+  }
+  75% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}/*# sourceMappingURL=loginRegister.css.map */

@@ -1,0 +1,644 @@
+//Importamos
+@import "_mediaQueries";
+
+//Variables
+$backgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+$brandColor: linear-gradient(120deg, #b6e154 0%, #96e6a1 100%);
+$secondaryColor: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$backgroundDarkImage: linear-gradient(to right, #434343 0%, black 100%);
+$lightImageBackground: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+$darkFontColor: #272727;
+$lightFontColor: #e3e3e3;
+$shadow: #9d9c9c;
+$errorColor: rgb(245, 106, 106);
+$semiLightFontColor: #cdcdcd;
+$brandFontColor: #7b336f;
+$sm: 14px;
+$md: 16px;
+$lg: 22px;
+$slg: 30px;
+$noBold: 400;
+$bold: 600;
+$montserratFont: "Montserrat", sans-serif;
+$fontAfacada: "Afacad Flux", sans-serif;
+$fontOpenSans: "Open Sans", sans-serif;
+$fontNerkoOne: "Nerko One", cursive;
+$fontPlaywrite: "Playwrite GB S", serif;
+
+//Mixins
+@mixin sizes($width: 100%, $height: 100%){
+    width: $width;
+    height: $height;
+}
+@mixin displayFlex($justifyContent: center, $flexDirection: column){
+    display: flex;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+    align-items: center;
+}
+@mixin fontConfig($textAlign: center, $fontSize: $sm, $fontWeight: $noBold, $fontColor: $darkFontColor){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    text-align: $textAlign;
+}
+@mixin buttonDesign($width: 100%){
+    padding: 2px;
+    border: 1px solid $darkFontColor;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: $fontAfacada;
+    width: $width;
+    height: 40px;
+    text-align: center;
+    font-weight: $bold;
+    font-size: $sm;
+    color: $darkFontColor;
+    cursor: pointer;
+}
+@mixin inputDesign($width: 500px, $height: 40px){
+    border-radius: 5px;
+    border: 1px solid rgb(60, 60, 60);
+    outline: none;
+    width: $width;
+    height: $height;
+    background-color: transparent;
+    font-size: $md;
+    font-family: $fontAfacada;
+    padding: 10px;
+}
+@mixin animation($name: opacityFadeIn, $duration: 1s){
+    animation: $name forwards ease;
+    animation-duration: $duration;
+}
+
+//Generales
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//Html & Body
+html{
+    @include sizes();
+    @include displayFlex();
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: url(/src/assets/img/dollarBackground.png);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+
+    @include mobile{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+}
+body{
+    @include sizes(90%,90%);
+    @include displayFlex($justifyContent: space-between,$flexDirection:row);
+    font-family: $fontAfacada;
+    background-image: $backgroundImage;
+    box-shadow: 0px 0px 50px 1px $shadow;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @include mobile{
+        &.is-mobile{
+            @include sizes();
+            justify-content: center;
+            border-radius: 0px;
+            box-shadow: none;
+        }
+    }
+}
+
+//Nav
+nav{
+    @include sizes(200px);
+    @include displayFlex($justifyContent: space-around);
+    background-image: $secondaryColor;
+    z-index: 1000;
+
+    @include mobile{
+        display: none;
+    }
+
+    header{
+        @include sizes($height: 30%);
+        @include displayFlex();
+        cursor: default;
+
+        img{
+            @include sizes(80%,auto);
+            border-radius: 50%;
+        }
+        span{
+            color: $semiLightFontColor;
+        }
+    }
+    section{
+        @include sizes($height: 35%);
+        @include displayFlex($flexDirection:row);
+
+        ul{
+            @include sizes(30px);
+            @include displayFlex($justifyContent: space-around);
+
+            li{
+                list-style: none;
+                @include sizes($height: 30px);
+                @include displayFlex();
+                align-items: flex-start;
+                color: $lightFontColor;
+                font-weight: $noBold;
+                padding-left: 5px;
+                transition: all 0.3s ease;
+                background-color: transparent;
+                border-top-right-radius: 100px;
+
+                img{
+                    @include sizes(20px,auto);
+                }
+            }
+        }
+    }
+    section ul:nth-child(2){
+        width: 90px;
+            li{
+                cursor: pointer;
+            }
+            li:hover{
+                transform: translateX(3px);
+            }
+    }
+}
+
+//Burguer menu icon
+.menuIcon{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    @include sizes(40px,auto);
+    z-index: 99999;
+    display: none;
+
+    @include mobile {
+        display: block;
+    }
+}
+.burguerMenu{
+    position: absolute;
+    display: flex;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 250px;
+    z-index: 99999;
+}
+#closeBurguer{
+    display: none;
+}
+
+
+//Main
+main{
+    @include sizes();
+    @include displayFlex();
+
+    @include tablet{
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    section{
+        @include sizes();
+        @include displayFlex($justifyContent: space-between);
+        display: none;
+        padding: 15px;
+        background-image: $lightImageBackground;
+
+        h3{
+            @include sizes($height: 30px);
+            @include displayFlex();
+            align-items: flex-start;
+        }
+        form{
+            @include sizes();
+            @include displayFlex();
+            gap: 5px;
+            opacity: 0;
+            animation: fadeInTo1 1.5s ease forwards;
+            label{
+                width: 90%;
+            }
+            input{
+                @include inputDesign(90%);
+                height: 60px;
+            }
+            select{
+                width: 90%;
+                border-radius: 5px;
+                background-color: transparent;
+                font-family: $fontAfacada;
+                height: 40px;
+                font-size: $md;
+                padding: 10px;
+            }
+            button{
+                @include buttonDesign(90%);
+            }
+            button:hover{
+                background-image: $brandColor;
+            }
+        }
+    }
+    #filters{
+        display: none;
+        div{
+            @include sizes();
+            @include displayFlex();
+            div{
+                @include sizes(90%,350px);
+                gap: 5px;
+
+                @include mobile{
+                    height: 300px;
+                }
+                @include tablet{
+                    height: 300px;
+                }
+
+                h4{
+                    @include sizes($height: 40px);
+                    @include displayFlex();
+                    font-size: $lg;
+
+                    @include mobile{
+                        font-size: $md;
+                    }
+                }
+                label{
+                    @include sizes($height: 40px);
+                    @include displayFlex();
+                }
+                input{
+                    @include inputDesign(50%,$height: 50px)
+                }
+                button{
+                    @include buttonDesign(50%);
+                }
+                button:hover{
+                    background-image: $brandColor;
+                }
+                .dates{
+                    @include sizes(100%,130px);
+                    @include displayFlex($flexDirection:row);
+
+                    div{
+                        @include sizes();
+                        @include displayFlex();
+
+                        input{
+                            width: 80%;
+                        }
+                    }
+                }
+            } 
+        }
+        #betweenFilter{
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 1px $shadow;
+            transform: translateY(2500px);
+            animation: fadeInModal 0.5s ease forwards;
+        }
+        #dateFilter{
+            transform: translateY(-2500px);
+            animation: fadeInModal 0.5s ease forwards;
+        }
+        #dateSpan, #betweenDateSpan{
+            background-image: $brandColor;
+            @include sizes(500px,50px);
+            @include displayFlex();
+            border-radius: 60px;
+            font-size: $lg;
+            font-weight: $bold;
+            display: none;
+        }
+    }
+    #newExpenses{
+        div{
+            @include sizes($height:100px);
+            @include displayFlex();
+
+            img{
+                @include sizes(300px,auto);
+                transform: translateY(10px) translateX(-120px) rotate(-15deg);
+                opacity: 0;
+                z-index: 999;
+                animation: fadeIn 3s ease forwards;
+            }
+        }
+    }
+    #history{
+        display: none;
+        @include mobile{
+            @include sizes();
+        }
+        .ulHeader{
+            @include displayFlex($justifyContent: space-between,$flexDirection:row);
+            @include sizes($height: 50px);
+            box-shadow: 0px 0px 5px 1px $shadow;
+            border-radius: 5px;
+            opacity: 0.7;
+            cursor: default;
+            padding: 5px;
+            margin: 10px;
+            opacity: 0;
+            animation: fadeInTo1 1s ease forwards;
+
+            li{
+                @include sizes($width: 25%,$height: 40px);
+                @include displayFlex();
+                border-bottom: 0px;
+                list-style: none;
+            }
+        }
+        .ulHeader li:first-child{
+            width: 10%;
+        }
+        .expensesList{
+            @include displayFlex();
+            display: block;
+            @include sizes();
+            gap: 5px;
+            overflow-y: scroll;
+            padding: 15px;
+            overflow-x: hidden;
+
+            li{
+                @include sizes($height: 40px);
+                @include displayFlex($justifyContent:space-between,$flexDirection: row);
+                border-bottom: 1px solid $shadow;
+                cursor: default;
+
+                div{
+                    @include sizes(10%);
+                    @include displayFlex();             
+                }
+                img{
+                    @include sizes(30px,auto);
+                    transform: translateX(2500px);
+                    animation: historialAnimation 1s ease forwards;
+                }
+                span{
+                    @include sizes(25%);
+                    @include displayFlex();
+                    transition: all 0.3s ease;
+                    transform: translateX(2500px);
+                    border-radius: 60px;
+                    animation: historialAnimation 1.5s ease forwards;
+                }
+                span:hover{
+                    transform: scale(1.05);
+                    font-weight: $bold;
+                }
+            }
+        }
+        div{
+            @include sizes($height:100px);
+            @include displayFlex();
+
+            #backgroundPig{
+                @include sizes(300px,auto);
+                transform: translateY(-55px) translateX(500px);
+                opacity: 0;
+                z-index: 999;
+                animation: fadeIn 3s ease forwards;
+            }
+        }
+    }
+    #dashboard{
+        display: flex;
+
+        .titleContainer{
+            @include sizes($height: 80px);
+            @include displayFlex($flexDirection:row, $justifyContent: space-between);
+            h2{
+                @include sizes(50%);
+                @include displayFlex();
+                align-items: flex-start;
+                color: $brandFontColor;
+                font-weight: $bold;
+                font-family: $fontAfacada;
+                font-size: $slg;
+                margin-top: 10px;
+            }
+            div{
+                @include sizes(90px,30px);
+                @include displayFlex($flexDirection:row);
+                border-radius: 100px;
+                overflow: hidden;
+
+                .darkMode{
+                    background-color: #272727;
+                    box-shadow: none;
+                    border-radius: 0px;
+                    background-image: url(/src/assets/img/darkModeBackground.jpg);
+                    background-position: center;
+                    background-size: cover;
+                    cursor: pointer;
+                }
+                .lightMode{
+                    background-color: #e2ebf0;
+                    border-radius: 0px;
+                    box-shadow: none;
+                    background-image: url(/src/assets/img/cloudsBackground.jpg);
+                    background-position: center;
+                    background-size: cover;
+                    cursor: pointer;
+                }
+            }
+        }
+        .cards{
+            @include sizes(100%);
+            @include displayFlex($flexDirection:row);
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+            cursor: default;
+
+            @include tablet{
+                gap: 70px;
+            }
+            @include mobile {
+                overflow-y: scroll;
+            }
+
+            div{
+                @include sizes(30%,30%);
+                @include displayFlex();
+                border-radius: 20px;
+                box-shadow: 0px 0px 10px 1px $shadow;
+                justify-content: space-between;
+
+                @include tablet {
+                    @include sizes(90%,200px);
+                }
+
+                img{
+                    @include sizes(150px,auto);
+                    margin-top: -50px;
+
+                    @include mobile {
+                        @include sizes(120px,auto);
+                        margin-top: -20px;
+                    }
+                }
+                span{
+                    @include sizes();
+                    @include displayFlex();
+                    font-size: $slg;
+                }
+                button{
+                    @include sizes(180px);
+                    @include displayFlex($flexDirection:row);
+                    gap: 5px;
+                    height: 70px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 50px;
+                    margin-bottom: -20px;
+                    background-image: $secondaryColor;
+                    font-size: 17px;
+                    font-family: $fontAfacada;
+                    color: $lightFontColor;
+                    transition: all 0.3 ease;
+                    padding: 5px;
+
+                    img{
+                        @include sizes(20px,auto);
+                        margin-top: 0px;
+                    }
+                }
+                button:hover{
+                    transform: translateY(-5px);
+                }
+                div{
+                    @include sizes();
+                    box-shadow: none;
+                    @include displayFlex();
+                }
+            }
+            .total{
+                opacity: 0;
+                animation: popCard 0.5s ease forwards;
+                animation-delay: 0s;
+
+                span{
+                    font-weight: $bold;
+                }
+            }
+            .transportCategory{
+                opacity: 0;
+                animation: popCard 0.6s ease forwards;
+                animation-delay: 0.2s;
+            }
+            .foodCategory{
+                opacity: 0;
+                animation: popCard 0.7s ease forwards;
+                animation-delay: 0.4s;
+            }
+            .entertainmentCategory{
+                opacity: 0;
+                animation: popCard 0.8s ease forwards;
+                animation-delay: 0.6s;
+            }
+            .perFilter{
+                opacity: 0;
+                animation: popCard 0.9s ease forwards;
+                animation-delay: 0.8s;
+            }
+        }
+        .cards div:nth-child(5){
+            box-shadow: none;
+            justify-content: center;
+            gap: 5px;
+            h4{
+                box-shadow: none;
+                font-size: 1.7vw;
+
+                @include mobile{
+                    font-size: $lg;
+                }
+            }
+            div{
+                height: 70px;
+            }
+            button{
+                font-size: $slg;
+                transition: all 0.3s ease;
+            }
+            #filterIcon{
+                margin-top: 0px;
+            }
+        }
+    }
+    //Modales de error y éxito
+    #errorSuccessModals{
+        position: absolute;
+        @include sizes($width:200%);
+        @include displayFlex($flexDirection:row);
+        z-index: 1000000;
+        transform: translateY(-1500px);
+        background-color: transparent;
+        background-image: none;
+
+        .fullscreenContainer{
+            box-shadow: 0px 0px 10px 1px $shadow;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: -300px;
+            @include sizes(250px,50px);
+            @include displayFlex($justifyContent:space-between,$flexDirection:row);
+        }
+        span{
+            color: $darkFontColor;
+            font-weight: $bold;
+        }
+        img{
+            @include sizes($width: 20px, $height: auto);
+            cursor: pointer;
+        }
+    }
+}
+
+//Animations
+@keyframes bodyShortWidth {
+    0%{width: 80%}
+    100%{width: 30%}
+}
+@keyframes bodyLongWidth {
+    0%{width: 30%}
+    100%{width: 80%}
+}
+@keyframes fadeIn {
+    100%{opacity: 0.3;}
+}
+@keyframes fadeInTo1 {
+    100%{opacity: 1;}
+}
+@keyframes popCard {
+    75%{transform: scale(1.04); opacity: 0.7;}
+    100%{transform: scale(1); opacity: 1;}
+}
+@keyframes fadeInModal {
+    100%{transform: translateY(0px);}
+}
+@keyframes historialAnimation {
+    75%{transform: translateX(0px);}
+    100%{transform: translateX(0px);}
+}
+

@@ -1,6 +1,6 @@
 //Aqui toda la funcionalidad para loguearse
 //Importamos
-import { errorModal } from "./modalController.js";
+import { errorModalLogReg, successModalLogReg } from "./modalController.js";
 
 export function login(){
     //Boton de logueo
@@ -21,10 +21,12 @@ export function login(){
             if(userExists){
                 sessionStorage.setItem('activeUser', userExists.username)
                 sessionStorage.setItem('activeEmail', userExists.email)
-                location.href = '/src/views/home.html'
+                sessionStorage.setItem('profImg', userExists.profileImg)
+                sessionStorage.setItem('screenMode', "0")
+                location.href = '/src/views/dashboard.html'
             } else {
                 const errorMessage = 'Credenciales incorrectas'
-                errorModal(errorMessage);
+                errorModalLogReg(errorMessage);
             }
         })
     }

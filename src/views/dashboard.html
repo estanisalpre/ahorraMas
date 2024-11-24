@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Datos - Ahorra+</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/src/assets/styles/dashboard.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Nerko+One&display=swap" rel="stylesheet">
+    <!--Link favicon-->
+    <link rel="shortcut icon" href="/src/assets/img/logo/favicon.png" type="image/x-icon">
+</head>
+<body id="body">
+    <!--NAV-->
+    <nav id="nav">
+        <header class="profileContainer">
+            <img id="profImg" src="" alt="Foto de perfil elegida por el usuario">
+            <span id="navUsername"></span>
+        </header>
+        <section class="navigation">
+            <ul>
+                <li><img src="/src/assets/img/icons/dashboardThin.png" alt=""></li>
+                <li><img src="/src/assets/img/icons/newExpenseThin.png" alt=""></li>
+                <li><img src="/src/assets/img/icons/historyThin.png" alt=""></li>
+                <li><img src="/src/assets/img/icons/logoutThin.png" alt=""></li>
+            </ul>
+            <ul>
+                <li id="toDashboard">Dashboard</li>
+                <li id="toNewExpense">Nuevo Gasto</li>
+                <li id="toHistory">Historial</li>
+                <li id="logoutButton">Salir</li>
+            </ul>
+        </section>
+    </nav>
+    <!--BURGUER MENU-->
+    <img id="burguerIcon" class="menuIcon" src="/src/assets/img/icons/menu.png" alt="Ícono de menu de navegación">
+    <img id="closeBurguer" class="menuIcon" src="/src/assets/img/icons/closeMenu.png" alt="Ícono de cerrar menu de navegación">
+    <!--MAIN-->
+    <main>
+        <section id="dashboard" class="dashboard section">
+            <h3 class="span">Dashboard - Central de Datos</h3>
+            <div class="titleContainer">
+                <h2 id="username"></h2>
+                <div class="mode"><div class="darkMode" id="darkMode"></div><div class="lightMode" id="lightMode"></div></div>
+            </div>
+            <div class="cards">
+                <div class="total card">
+                    <img src="/src/assets/img/icons/gastos.png" alt="Ícono referencial a los gastos de transporte">
+                    <h4 class="span">Total gastado</h4>
+                    <span id="totalExpenses" class="span"></span>
+                    <button class="toAddExpenses" id="addTotal"><img src="/src/assets/img/icons/pig.png" alt="Ícono que representa el logo de la marca: un cerdo">Agregar gasto</button>
+                </div>
+                <div class="transportCategory card">
+                    <img src="/src/assets/img/icons/transport.png" alt="Ícono referencial a los gastos de transporte">
+                    <span id="transport" class="span"></span>
+                    <button class="toAddExpenses" id="addTransport"><img src="/src/assets/img/icons/pig.png" alt="Ícono que representa el logo de la marca: un cerdo">Agregar gasto</button>
+                </div>
+                <div class="foodCategory card">
+                    <img src="/src/assets/img/icons/fastFood.png" alt="Ícono referencial a los gastos de transporte">
+                    <span id="food" class="span"></span>
+                    <button class="toAddExpenses" id="addFood"><img src="/src/assets/img/icons/pig.png" alt="Ícono que representa el logo de la marca: un cerdo">Agregar gasto</button>
+                </div>
+                <div class="entertainmentCategory card">
+                    <img src="/src/assets/img/icons/entertainment.png" alt="Ícono referencial a los gastos de transporte">
+                    <span id="entertainment" class="span"></span>
+                    <button class="toAddExpenses" id="addEntertainment"><img src="/src/assets/img/icons/pig.png" alt="Ícono que representa el logo de la marca: un cerdo">Agregar gasto</button>
+                </div>
+                <div class="perFilter">
+                    <h4 class="span">¿Quieres filtrar los gastos?</h4>
+                    <div>
+                       <button id="toFilter"><img id="filterIcon" src="/src/assets/img/icons/filters.png" alt="Ícono referencial de filtros/configuracion">Filtros</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="filters" class="filters section">
+            <h3 class="span">Filtros</h3>
+            <div class="perDates">
+                <div id="dateFilter">
+                    <h4 class="span">Escoge una fecha específica</h4>
+                    <label for="date" class="span">Escoge la fecha</label>
+                    <input class="input" type="date" name="date" id="dateHome" required>
+                    <button class="input" id="dateFilterButton">Filtrar</button>
+                    <span class="span" id="dateSpan"></span>
+                </div>
+                <div id="betweenFilter" class="card">
+                    <h4 class="span">Analiza tus gastos entre fechas</h4>
+                    <div class="dates">
+                        <div class="initialDate">
+                            <label class="span" for="initialDate">Fecha inicial</label>
+                            <input class="input" type="date" name="initialDate" id="initialDate" required>
+                        </div>
+                        <div class="finalDate">
+                            <label class="span" for="finalDate">Fecha final</label>
+                            <input class="input" type="date" name="finalDate" id="finalDate" required>
+                        </div>
+                    </div>
+                    <button class="input" id="betweenDateFilterButton">Filtrar</button>
+                    <span class="span" id="betweenDateSpan"></span>
+                </div>
+            </div>
+        </section>
+        <section id="newExpenses" class="newExpenses section">
+            <h3 class="span">Registra un nuevo gasto</h3>
+            <form>
+                <label for="description" class="span">Describe tu gasto</label>
+                <input class="input span" type="text" name="description" id="description" required>
+                <label for="date" class="span">Especifica la fecha</label>
+                <input class="input" type="date" name="date" id="date" required>
+                <label for="value" class="span">Ingresa el valor</label>
+                <input class="input span" type="number" name="value" id="value" required>
+                <label for="" class="span">Escoge la categoría</label>
+                <select class="input" id="category">
+                    <option value="transporte">Transporte</option>
+                    <option value="alimentos">Alimentos</option>
+                    <option value="entretenimiento">Entretenimiento</option>
+                </select>
+                <button class="input" id="registerButton">Registrar</button>
+            </form>
+            <div>
+                <img src="/src/assets/img/alcancia.png" alt="Imagen de fondo referencial de un alcancia">
+            </div>
+        </section>
+        <section id="history" class="history section">
+            <h3 class="span">Historial de gastos</h3>
+            <ul class="ulHeader card">
+                <li class="span">Tipo</li>
+                <li class="span">Fecha</li>
+                <li class="span">Descripción</li>
+                <li class="span">Valor</li>
+            </ul>
+            <ul id="expensesList" class="expensesList">
+                <span id="spentSpan" class="span">Aún no hay registro de gastos</span>
+            </ul>
+            <div>
+                <img id="backgroundPig" src="/src/assets/img/backPig.gif" alt="">
+            </div>
+        </section>
+        <!--MODALES ERROR Y ÉXITO-->
+        <section id="errorSuccessModals">
+            <div id="fullscreenContainer" class="fullscreenContainer">
+                <span id="modalMessage"></span><img id="closeModal" src="/src/assets/img/icons/close.png" alt="Close Icon">
+            </div>
+        </section>
+    </main>
+    <!--SCRIPTS-->
+    <script type="module" src="/src/js/dashboardFunctionality.js"></script>
+    <script type="module" src="/src/js/dashboard.js"></script>
+    <script type="module" src="/src/js/controllers.js"></script>
+</body>
+</html>

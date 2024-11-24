@@ -1,7 +1,7 @@
 //Funcionalidad al formulario de Registro. Debemos registrar usuario en localstorage
 //Importamos
 import { Users } from "./Users.js";
-import { successModal, errorModal } from "./modalController.js";
+import { successModalLogReg, errorModalLogReg } from "./modalController.js";
 import { spents } from "./APIsimulator.js";
 
 export function registerUser(){
@@ -17,28 +17,39 @@ export function registerUser(){
             const userEmail = document.getElementById('email').value
             const userPassword = document.getElementById('password').value
 
-            //Verificamos que no exista un localstorage con el mismo correo
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const findUser = users.some(user => user.email === userEmail)
+            //Capturamos valor de foto de perfil elegida
+            const profile = document.querySelectorAll('#profile')
 
-            if(findUser){
-                const errorMessage = 'Email ya existe'
-                errorModal(errorMessage);
-            } else {
-                //Instanciamos objeto
-                const spentsHistory = spents;
-                const newUser = new Users(userName,userEmail,userPassword,spentsHistory)
+            profile.forEach(function(prof) {
+                if(prof.checked){
+                    const profImg = prof.value;
 
-                //Pusheamos el nuevo usuario
-                users.push(newUser)
+                    //Verificamos que no exista un localstorage con el mismo correo
+                    const users = JSON.parse(localStorage.getItem('users')) || [];
+                    const findUser = users.some(user => user.email === userEmail)
 
-                //Guardamos en localstorage
-                localStorage.setItem('users', JSON.stringify(users))
+                    if(findUser){
+                        const errorMessage = 'Email ya existe'
+                        errorModalLogReg(errorMessage);
+                    } else {
+                        //Instanciamos objeto
+                        const spentsHistory = spents;
+                        const newUser = new Users(userName,userEmail,userPassword,spentsHistory,profImg)
 
-                //Mostramos span de éxito
-                const successMessage = 'Registro exitoso'
-                successModal(successMessage);
-            }
+                        //Pusheamos el nuevo usuario
+                        users.push(newUser)
+
+                        //Guardamos en localstorage
+                        localStorage.setItem('users', JSON.stringify(users))
+
+                        //Mostramos span de éxito
+                        const successMessage = 'Registro exitoso'
+                        successModalLogReg(successMessage);
+                }
+                } else {
+                    const profImg = 0
+                }
+            })
         })
     }
 }

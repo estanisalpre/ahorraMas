@@ -9,7 +9,7 @@
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Nerko+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Cedarville+Cursive&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
     <!--Link favicon-->
     <link rel="shortcut icon" href="/src/assets/img/logo/favicon.png" type="image/x-icon">
 </head>
@@ -18,11 +18,11 @@
     <nav>
         <header>
             <ul>
-                <li>Sobre Ahorra+</li>
+                <li id="aboutUsLink">Sobre Ahorra+</li>
                 <li>¿Cómo utilizarla?</li>
-                <li>Nuestra misión</li>
-                <li>Contacto</li>
-                <li>Ayuda</li>
+                <li>Misión & Visión</li>
+                <li id="contactLink">Contacto</li>
+                <li id="helpLink">Ayuda</li>
             </ul>
         </header>
         <header class="bottomHeader">
@@ -35,24 +35,97 @@
     </nav>
     <!--MAIN - CONTENIDO PRINCIPAL-->
     <main>
+        <!--CONTENIDO PRINCIPAL-->
         <section class="principalContainer">
-            <img src="/src/assets/img/happyPeopleSaving.png" alt="Image of people being happy because they are saving money">
+            <img id="principalImage" src="/src/assets/img/happyPeopleSaving.png" alt="Image of people being happy because they are saving money">
             <article>
                 <h1>Ahorra+ con nuestro gestor de gastos</h1>
-                <h4>no se lo cuentes a nadie 😉</h4>
                 <ul>
                     <li><img src="/src/assets/img/icons/checkIcon.png" alt="Check icon">Seguimiento de tus gastos a diario</li>
                     <li><img src="/src/assets/img/icons/checkIcon.png" alt="Check icon">Resúmenes quincenales o mensuales, ¡como lo prefieras!</li>
                     <li><img src="/src/assets/img/icons/checkIcon.png" alt="Check icon">Alertas automáticas al excederte en tus gastos</li>
                     <li><img src="/src/assets/img/icons/checkIcon.png" alt="Check icon">Consejos para controlar tus gastos de una manera más efectiva</li>
-                    <li><button>SABER MÁS</button></li>
+                    <li><button id="saberMasButton">SABER MÁS</button></li>
                 </ul>
             </article>
+            <img id="imgPhoneApp" src="/src/assets/img/phoneApp.png" alt="Image of a phone application">
+        </section>
+        <!--SECCION FRASE INSPIRACIONAL-->
+        <section class="phraseContainer">
+            <h3 class="phraseMotivational">El dinero que ahorras hoy... <br> es la libertad que disfrutas mañana.</h3>
+        </section>
+        <!--SECCION SOBRE AHORRA+-->
+        <section id="aboutUs" class="aboutUsContainer">
+            <div class="aboutUsTitle"><h3>Sobre Ahorra+</h3></div>
+            <article>
+                <p>Nuestra aplicación está diseñada para ayudarte a llevar un control efectivo de tus gastos diarios. <br><br> Con una interfaz intuitiva, puedes registrar fácilmente cada compra y categorizar tus gastos en secciones como alimentos, transporte y entretenimiento.
+                    Ofrece un resumen quincenal o mensual, permitiéndote identificar áreas donde podrías ahorrar. <br><br> Además, incluye alertas personalizables que te recuerdan tus límites de presupuesto, ayudándote a mantenerte en el camino hacia tus metas financieras.
+                    
+                    La seguridad es una prioridad; tus datos están protegidos y solo tú tienes acceso a tu información. Con reportes detallados, podrás analizar tus finanzas de manera efectiva.
+                    
+                    Ideal para quienes desean mejorar su administración personal o entender mejor sus hábitos de consumo, nuestra app te ayuda a tomar el control de tu dinero. <br> <br> ¡Regístrate y comienza a manejar tus gastos para lograr una mejor salud financiera!</p>
+            </article>
+            <button id="aboutUsButton">Registrarme</button>
+        </section>
+        <!--SECCION SOBRE CÓMO UTILIZAR AHORRA+-->
+        <!-- <section></section> -->
+        <!--SECCION MISIÓN/VISIÓN-->
+       <!--  <section></section> -->
+        <!--SECCION DE CONTACTO-->
+        <!-- <section id="contactSection">
+
+        </section> -->
+        <!--SECCION DE AYUDA-->
+        <section id="helpSection">
+            <h3>Consulta tus dudas aquí</h3>
+            <div class="faqContainer">
+                <div class="faq">
+                    <div class="faqQuestion">
+                        ¿Cómo funciona la aplicación?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faqAnswer">
+                        <p>Puedes registrar todos tus gastos para poder tener control sobre tus finanzas, añadir gastos, identificar en que estás utilizando el dinero y como puedes aprovechar a maximo tu dinero con ayuda de nuestros consejos </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="faqQuestion">
+                        ¿Tienen sede física?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faqAnswer">
+                        <p>Somos una empresa virtual dedicada a ayudar a la comunidad a tener control sobre sus finanzas.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="faqQuestion">
+                        ¿Cómo puedo trabajar con ustedes?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faqAnswer">
+                        <p>Estaremos publicando en nuetra web cuando tengamso bacantes disponibles para ser parte de nuestro esquipo, Gracias por el interes.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="faqQuestion">
+                        ¿Tienen alianzas con alguna entidad financiera?
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faqAnswer">
+                        <p>Estamos trabajando para unirnos con las principales fintech del pais. Debes estar atento a nuestras redes para estar al tanto de todo.</p>
+                    </div>
+                </div>
+            </div>
+            <p>Si aún tienes dudas, puedes ir a <span id="toContactButton">contacto</span></p>
         </section>
     </main>
     <!--FOOTER-->
     <footer>
         <img src="/src/assets/img/logo/logoWithoutBackground.png" alt="Logo Ahorra+">
+        <div class="teamMembers">
+            <h3>Integrantes</h3>
+            <img id="imgGroup" src="/src/assets/img/integrantes.png" alt="Team Members Image">
+        </div>
     </footer>
     <!--Link JS-->
     <script type="module" src="/src/js/index.js"></script>
