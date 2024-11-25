@@ -22,15 +22,17 @@
         </header>
         <section class="navigation">
             <ul>
-                <li><img src="/src/assets/img/icons/dashboardThin.png" alt=""></li>
-                <li><img src="/src/assets/img/icons/newExpenseThin.png" alt=""></li>
-                <li><img src="/src/assets/img/icons/historyThin.png" alt=""></li>
-                <li><img src="/src/assets/img/icons/logoutThin.png" alt=""></li>
+                <li><img src="/src/assets/img/icons/dashboardThin.png" alt="Ícono Home Dashboard"></li>
+                <li><img src="/src/assets/img/icons/newExpenseThin.png" alt="Ícono de Nuevo Gasto"></li>
+                <li><img src="/src/assets/img/icons/historyThin.png" alt="Ícono de Historial de gastos"></li>
+                <li><img src="/src/assets/img/icons/tutorial.png" alt="Ícono de tutorial de como utilizar la app"></li>
+                <li><img src="/src/assets/img/icons/logoutThin.png" alt="Ícono de salir/logout"></li>
             </ul>
             <ul>
                 <li id="toDashboard">Dashboard</li>
                 <li id="toNewExpense">Nuevo Gasto</li>
                 <li id="toHistory">Historial</li>
+                <li id="tutorial">Tutorial</li>
                 <li id="logoutButton">Salir</li>
             </ul>
         </section>
@@ -146,6 +148,174 @@
             </div>
         </section>
     </main>
+    <!--TUTORIAL-->
+        <div id="firstStep" class="tutorialStep">
+            <img class="pigmanImg" src="/src/assets/img/pigman/defaultPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Bienvenido al tutorial, Estanis</h3>
+                <p>Yo soy Pigman+, de Ahorra+ y estoy encantado de ayudarte a conocer nuestra app. <br>
+                En esta aventura, podrás conocer todo el funcionamiento y servicio que ofrecemos para ti. <br> <br>
+                ¡Asi que dale! Comienza presionando en siguiente</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep2"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="secondStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Presiona el dashboard</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial" id="endTut1"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep3"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="thirdStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Tercer paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep4"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="fourthStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Cuarto paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep5"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="fifthStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Quinto paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep6"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="sixthStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Sexto paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep7"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="seventhStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>Septimo paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep8"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="eigthStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>octavo paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep9"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="ninethStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>9 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep10"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="tenStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>10 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep11"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="elevenStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>11 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep12"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="twelveStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>12 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep13"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="thirdteenStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>13 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep14"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="fourtheenStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>14 paso</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="toStep15"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
+        <div id="fiftheenStep" class="tutorialStep" style="display: none;">
+            <img class="pigmanImg" src="/src/assets/img/pigman/moneyPigman.png" alt="Ícono del señor cerdo que representa la marca">
+            <div class="textTutorial">
+                <h3>paso final</h3>
+                <p>El lugar donde tienes tooooda la información sobre tus gastos.</p>
+            </div>
+            <div class="buttonZone">
+                <button class="endTutorial"><img class="buttonImg end" src="/src/assets/img/icons/x.png" alt="Icono de Cerrar"></button>
+                <button class="nextTutorial nextTut" id="finalStep"><img class="buttonImg next" src="/src/assets/img/icons/next.png" alt="Ícono de siguiente"></button>
+            </div>
+        </div>
     <!--SCRIPTS-->
     <script type="module" src="/src/js/dashboardFunctionality.js"></script>
     <script type="module" src="/src/js/dashboard.js"></script>

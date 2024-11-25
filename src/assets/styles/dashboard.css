@@ -721,6 +721,186 @@ main #errorSuccessModals img {
   cursor: pointer;
 }
 
+.tutorialStep {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  z-index: 999999;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 1px black;
+  animation: popCard 1s ease forwards;
+  display: none;
+  width: 450px;
+  height: 200px;
+}
+.tutorialStep .pigmanImg {
+  width: auto;
+  height: 120px;
+  margin-left: -60px;
+  filter: drop-shadow(0px 0px 5px black);
+}
+.tutorialStep .buttonZone {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.tutorialStep button {
+  padding: 2px;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Afacad Flux", sans-serif;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #272727;
+  cursor: pointer;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  padding: 5px;
+  border: 0px;
+}
+.tutorialStep .nextTut {
+  animation: buttonDesign 1.5s ease infinite;
+}
+.tutorialStep .end, .tutorialStep .next {
+  width: 30px;
+  height: auto;
+}
+.tutorialStep .end {
+  width: 20px;
+}
+.tutorialStep .textTutorial {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  color: #e3e3e3;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+#firstStep {
+  left: 300px;
+  bottom: 100px;
+}
+
+#secondStep {
+  left: 300px;
+  bottom: 300px;
+  height: 150px;
+}
+
+#thirdStep {
+  left: 600px;
+  top: 100px;
+  height: 150px;
+  width: 800px;
+}
+
+#fourthStep {
+  right: 150px;
+  bottom: 150px;
+  height: 100px;
+  width: 250px;
+}
+
+#fifthStep {
+  left: 600px;
+  top: 100px;
+  height: 150px;
+  width: 800px;
+}
+
+#sixthStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#seventhStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#eigthStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#ninethStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#sixthStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#tenStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#elevenStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#twelveStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#thirdteenStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#fourtheenStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
+#fiftheenStep {
+  left: 300px;
+  bottom: 250px;
+  height: 150px;
+  width: 250px;
+}
+
 @keyframes bodyShortWidth {
   0% {
     width: 80%;
@@ -768,5 +948,13 @@ main #errorSuccessModals img {
   }
   100% {
     transform: translateX(0px);
+  }
+}
+@keyframes buttonDesign {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
   }
 }/*# sourceMappingURL=dashboard.css.map */

@@ -83,6 +83,11 @@ html{
     @include sizes($height: 3500px);
     scroll-behavior: smooth;
     scroll-padding: 8rem;
+
+    @include mobile{
+        overflow-x: hidden;
+        overflow-y: scroll; 
+    }
 }
 body{
     @include sizes($height: 3500px);
@@ -101,16 +106,26 @@ nav{
     @include animation(translateY,1s);
     box-shadow: 0px 0px 10px 1px black;
 
+    @include mobile{
+        height: 200px;
+    }
     header{
         @include sizes($height:50px);
         @include displayFlex();
         background-image: $secondaryColor;
         z-index: 998;
 
+        @include mobile{
+            height: 100px;
+            flex-wrap: wrap;
+        }
         ul{
             @include sizes();
             @include displayFlex($justifyContent:space-around, $flexDirection:row);
 
+            @include mobile{
+                flex-wrap: wrap;
+            }
             li{
                 @include displayFlex();
                 list-style: none;
@@ -136,10 +151,17 @@ nav{
         padding-right: 30px;
         z-index: 999;
 
+        @include mobile{
+            height: 150px;
+            flex-wrap: wrap;
+        }
         img{
             @include sizes($width: auto,$height:70px);
             cursor: pointer;
             transition: all 0.3s ease-in-out;
+            @include mobile{
+                @include sizes(auto, 50px);
+            }
         }
         img:hover{
             transform: translateX(15px);
@@ -236,6 +258,10 @@ main{
                 font-weight: $bold;
                 text-align: center;
                 color: $lightFontColor;
+
+                @include mobile{
+                    font-size: 4vw;
+                }
             }
             ul{
                 @include displayFlex();
@@ -271,7 +297,7 @@ main{
 
     //Contenedor de la frase
     .phraseContainer{
-        @include sizes(90%,$height: 250px);
+        @include sizes(90%,5%);
         @include displayFlex();
         box-shadow: 0px 0px 10px 1px $shadow;
         border-radius: 10px;
@@ -290,10 +316,17 @@ main{
 
         h3{
             @include sizes();
+            @include displayFlex();
             text-align: center;
             font-family: $fontPlaywrite;
-            font-size: 3vw;
+            font-size: 40px;
             
+            @include tablet{
+                font-size: $slg;
+            }
+            @include mobile{
+                font-size: 4vw;
+            }
         }
     }
 
@@ -315,15 +348,16 @@ main{
             padding-left: 20px;
 
             h3{
-                font-size: 3vw;
+                font-size: 4vw;
             }
         }
         article{
-            @include sizes($height: 70%);
+            @include sizes($height: 80%);
             padding: 10px;
             
             p{
-                font-size: 1vw;
+                @include sizes();
+                font-size: $md;
             }
         }
         button{
@@ -494,6 +528,9 @@ footer{
         justify-content: space-between;
         height: 250px;
         opacity: 1;
+    }
+    @include mobile{
+        position: static;
     }
 
     img{

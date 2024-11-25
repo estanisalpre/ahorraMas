@@ -1,5 +1,6 @@
 import { screenMode } from "./darkLightMode.js";
 import { dashboard } from "./dashboard.js";
+import { tutorialFunctionality } from "./tutorial.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     printUsername(); //Imprime nombre de usuario en dashboard y nav
@@ -45,9 +46,6 @@ function dashboardNav(){
     const newExpenses = document.getElementById('newExpenses')
     const history = document.getElementById('history')
     const filters = document.getElementById('filters')
-
-    //Traemos el html
-    //const body = document.getElementById('body')
 
     //Contador en 0
     let count = 0;
@@ -159,6 +157,9 @@ function dashboardNav(){
                 }
             })
         })
+
+        //Iniciar tutorial
+        tutorialFunctionality();
     }   
 }
 
@@ -187,6 +188,7 @@ function dashboardNav(){
         li.style.borderBottomLeftRadius = '0px'
         li.style.color = '#e3e3e3'
     }
+
 
 
 //Burguer menu

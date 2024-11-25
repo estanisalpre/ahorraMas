@@ -12,8 +12,14 @@ html {
 }
 @media screen and (max-width: 1100px) {
   html {
-    overflow-y: visible;
-    overflow-x: visible;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 567px) {
+  html {
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 
@@ -154,6 +160,11 @@ main {
     margin-top: 0px;
   }
 }
+@media screen and (max-width: 567px) {
+  main {
+    flex-direction: column;
+  }
+}
 main .registerForm, main .loginForm {
   width: 400px;
   height: 100%;
@@ -170,6 +181,14 @@ main .registerForm, main .loginForm {
   main .registerForm, main .loginForm {
     width: 50%;
     height: 50%;
+  }
+}
+@media screen and (max-width: 567px) {
+  main .registerForm, main .loginForm {
+    width: 90%;
+    height: 70%;
+    padding: 10px;
+    z-index: 10000;
   }
 }
 main .registerForm h1, main .loginForm h1 {
@@ -284,11 +303,11 @@ main #profileImgs div input {
   cursor: pointer;
 }
 main #profileImgs div img {
-  width: 70px;
+  width: 90%;
   height: auto;
   border-radius: 50px;
 }
-main #registerImg {
+main #registerImg, main #loginImg {
   width: 30%;
   height: 60%;
   opacity: 0.4;
@@ -296,9 +315,18 @@ main #registerImg {
   right: 100px;
 }
 @media screen and (max-width: 1100px) {
-  main #registerImg {
+  main #registerImg, main #loginImg {
     width: 50%;
     height: 60%;
+  }
+}
+@media screen and (max-width: 567px) {
+  main #registerImg, main #loginImg {
+    position: absolute;
+    bottom: 30px;
+    z-index: 100;
+    width: 50%;
+    height: auto;
   }
 }
 
@@ -354,6 +382,11 @@ footer {
     opacity: 1;
   }
 }
+@media screen and (max-width: 567px) {
+  footer {
+    height: 30px;
+  }
+}
 footer img {
   width: 100px;
   height: auto;
@@ -395,6 +428,11 @@ footer:hover {
 @media screen and (max-width: 1100px) {
   footer:hover {
     height: 300px;
+  }
+}
+@media screen and (max-width: 567px) {
+  footer:hover {
+    height: 80px;
   }
 }
 

@@ -83,8 +83,12 @@ html{
     overflow-x: hidden;
 
     @include tablet {
-        overflow-y: visible;
-        overflow-x: visible;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    @include mobile{
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 }
 body{
@@ -184,6 +188,9 @@ main{
     @include tablet {
         margin-top: 0px;
     }
+    @include mobile{
+        flex-direction: column;
+    }
 
     //REGISTER.HTML - LOGIN.HTML
     .registerForm, .loginForm{
@@ -195,8 +202,12 @@ main{
         border-radius: 20px;
 
         @include tablet{
-            width: 50%;
-            height: 50%;
+            @include sizes(50%,50%);
+        }
+        @include mobile{
+            @include sizes(90%,70%);
+            padding: 10px;
+            z-index: 10000;
         }
                 h1{
                     font-size: $md;
@@ -262,20 +273,25 @@ main{
                 cursor: pointer;
             }
             img{
-                @include sizes(70px,auto);
+                @include sizes(90%,auto);
                 border-radius: 50px;
             }
         }
     }
-    #registerImg{
+    #registerImg, #loginImg{
         @include sizes(30%,60%);
         opacity: 0.4;
         position: absolute;
         right: 100px;
 
         @include tablet{
-            width: 50%;
-            height: 60%;
+            @include sizes(50%,60%);
+        }
+        @include mobile{
+            position: absolute;
+            bottom: 30px;
+            z-index: 100;
+            @include sizes(50%,auto);
         }
     }
 }
@@ -323,6 +339,9 @@ footer{
         height: 250px;
         opacity: 1;
     }
+    @include mobile{
+        height: 30px;
+    }
 
     img{
         @include sizes(100px,auto);
@@ -359,6 +378,9 @@ footer:hover{
 
     @include tablet {
         height: 300px;
+    }
+    @include mobile{
+        height: 80px;
     }
 }
 
